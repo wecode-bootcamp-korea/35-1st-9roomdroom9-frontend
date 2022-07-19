@@ -40,6 +40,18 @@
           transition: 0.2s ease padding, 0.3s ease border;
         }
 
+        .clickedInputLine {
+          margin: 20px 0 30px 0;
+          width: 350px;
+          border-bottom: 2px solid #adc088;
+        }
+
+        .forgotIDPassword {
+          margin-top: 25px;
+          font-size: 17px;
+          letter-spacing: 1px;
+        }
+
         .text-valid {
           font-size: 12px;
           color: #f45452;
