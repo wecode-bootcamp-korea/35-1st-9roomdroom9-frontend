@@ -1,0 +1,51 @@
+.footer {
+  background-color: #fafafa;
+  padding: 70px 0 100px 0;
+  line-height: 30px;
+  display: flex;
+
+  p {
+    padding-left: 15px;
+  }
+
+  .footerInner {
+    width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+
+    .footerLogo {
+      width: 400px;
+      position: relative;
+
+      font-size: 30px;
+    }
+
+    .footerDiv {
+      position: relative;
+
+      .footerNav {
+        display: flex;
+        width: 800px;
+
+        position: relative;
+        font-size: 18px;
+
+        .footerUl {
+          display: flex;
+
+          li {
+            padding-left: 15px;
+          }
+        }
+      }
+
+      .footerInfo {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        font-size: 15px;
+      }
+    }
+  }
+}
