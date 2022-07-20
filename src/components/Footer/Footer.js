@@ -2,33 +2,45 @@ import React from 'react';
 import './Footer.scss';
 
 const Footer = () => {
+  const ulList = [
+    { text: 'About' },
+    { text: '공지사항' },
+    { text: '이용약관' },
+    { text: '개인정보처리방침' },
+    { text: '대량구매/제휴안내' },
+  ];
+
+  const infoList = [
+    { text: '상호 : (주)구방문방구' },
+    { text: '대표 : 엄성훈' },
+    { text: '사업자등록번호 : 123-45-67890' },
+    { text: '통신판매업신고번호 : 2022-서울' },
+    { text: '사업자정보확인' },
+    { text: '대표번호 : 1234-5678' },
+    { text: '이메일 : abc123@abc.com' },
+    { text: '주소 : 서울특별시 강남구 테헤란로 427' },
+    { text: '호스팅제공 : (주)구방문방구' },
+  ];
+
   return (
     <div className="footer">
-      <div className="footerInner">
-        <div className="footerLogo">
+      <div className="footer-inner">
+        <div className="footer-logo">
           <h2>구방문방구</h2>
         </div>
-        <div className="footerDiv">
-          <nav className="footerNav">
-            <ul className="footerUl">
-              <li>About</li>
-              <li>공지사항</li>
-              <li>이용약관</li>
-              <li>개인정보처리방침</li>
-              <li>대량구매/제휴안내</li>
+        <div className="footer-div">
+          <nav className="footer-nav">
+            <ul className="footer-ul">
+              {ulList.map((text, i) => {
+                return <li key={i}>{text.text}</li>;
+              })}
             </ul>
             <p> @9roomd_store</p>
           </nav>
-          <div className="footerInfo">
-            <p>상호 : (주)구방문방구</p>
-            <p>대표 : 엄성훈</p>
-            <p>사업자등록번호 : 123-45-67890</p>
-            <p>통신판매업신고번호 : 2022-서울</p>
-            <p>사업자정보확인</p>
-            <p>대표번호 : 1234-5678</p>
-            <p>이메일 : abc123@abc.com</p>
-            <p>주소 : 서울특별시 강남구 테헤란로 427 </p>
-            <p>호스팅제공 : (주)구방문방구</p>
+          <div className="footer-info">
+            {infoList.map((text, i) => {
+              return <li key={i}>{text.text}</li>;
+            })}
           </div>
           <p>© 9roomdroom9 Corp. All rights reserved</p>
         </div>
