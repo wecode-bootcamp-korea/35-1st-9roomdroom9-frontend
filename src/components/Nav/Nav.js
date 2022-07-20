@@ -7,115 +7,94 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Nav = () => {
+  const categoryList = [
+    { text: '전체', navi: '/ItemList' },
+    { text: '문구', navi: '/ItemList' },
+    { text: '책/매거진F', navi: '/ItemList' },
+    { text: '구방그린', navi: '/ItemList' },
+    { text: '구방친구들', navi: '/ItemList' },
+    { text: '콜라보레이션', navi: '/ItemList' },
+    { text: '명예의 전당', navi: '/ItemList' },
+  ];
+  const iconList = [
+    { icon: faMagnifyingGlass, navi: '', text: '' },
+    { icon: faCartShopping, navi: '/Cart', text: '' },
+    { icon: '', navi: '/Login', text: '로그인' },
+    { icon: faBars, navi: '', text: '' },
+  ];
   const navigate = useNavigate();
 
   const [scrollPosition, setScrollPosition] = useState(0);
+
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
   };
+
   useEffect(() => {
     window.addEventListener('scroll', updateScroll);
-  });
+    return () => {
+      document.removeEventLisnter('scroll', updateScroll);
+    };
+  }, []);
 
   return (
-    <header
-      className={scrollPosition < 1 ? 'original_header' : 'change_header'}
-    >
-      <div className="navBar">
-        <h1
-          onClick={() => {
-            navigate('/');
-          }}
-        >
-          구방문방구
-        </h1>
-        <ul className="navIcon">
-          <li>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </li>
-          <li>
-            <FontAwesomeIcon
-              icon={faCartShopping}
+    <div className="nav">
+      <header
+        className={scrollPosition < 1 ? 'original-header' : 'change-header'}
+      >
+        <div className="nav-bar">
+          <div>
+            <h1
               onClick={() => {
-                navigate('/Cart');
-              }}
-            />
-          </li>
-          <li>
-            <span
-              onClick={() => {
-                navigate('/Login');
+                navigate('/');
               }}
             >
-              로그인
-            </span>
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faBars} />
-          </li>
-        </ul>
-      </div>
-      <nav className="category">
-        <ul className="navUl">
-          <li
-            onClick={() => {
-              navigate('/ItemList');
-            }}
-          >
-            전체
-          </li>
-          <li
-            onClick={() => {
-              navigate('/ItemList');
-            }}
-          >
-            문구
-          </li>
-          <li
-            onClick={() => {
-              navigate('/ItemList');
-            }}
-          >
-            리빙
-          </li>
-          <li
-            onClick={() => {
-              navigate('/ItemList');
-            }}
-          >
-            책/매거진F
-          </li>
-          <li
-            onClick={() => {
-              navigate('/ItemList');
-            }}
-          >
-            배민그린
-          </li>
-          <li
-            onClick={() => {
-              navigate('/ItemList');
-            }}
-          >
-            배달이친구들
-          </li>
-          <li
-            onClick={() => {
-              navigate('/ItemList');
-            }}
-          >
-            콜라보레이션
-          </li>
-          <li
-            onClick={() => {
-              navigate('/ItemList');
-            }}
-          >
-            명예의 전당
-          </li>
-        </ul>
-      </nav>
-    </header>
+              구방문방구
+            </h1>
+            <nav className="category">
+              <ul className="nav-ul">
+                {categoryList.map((categoryList, i) => {
+                  return (
+                    <li
+                      onClick={() => {
+                        navigate(categoryList.navi);
+                      }}
+                      key={i}
+                    >
+                      {categoryList.text}
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+          </div>
+          <ul className="nav-icon">
+            {iconList.map((iconList, i) => {
+              return (
+                <li key={i}>
+                  {iconList.icon !== '' ? (
+                    <FontAwesomeIcon
+                      icon={iconList.icon}
+                      onClick={() => {
+                        navigate(iconList.navi);
+                      }}
+                    />
+                  ) : (
+                    <span
+                      onClick={() => {
+                        navigate(iconList.navi);
+                      }}
+                    >
+                      {iconList.text}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </header>
+    </div>
   );
 };
 

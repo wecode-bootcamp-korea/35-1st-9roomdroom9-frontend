@@ -1,85 +1,86 @@
-.original_header {
+.nav {
   position: sticky;
   width: 100%;
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 0);
-}
 
-.change_header {
-  position: sticky;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: white;
-  border-bottom: 1px solid black;
-}
-
-.navBar {
-  height: 90px;
-  width: 100%;
-  display: flex;
-  padding: 0 40px;
-  align-items: center;
-  justify-content: space-between;
-
-  h1 {
-    font-size: 35px;
-    font-weight: bold;
-  }
-  h1:hover {
-    cursor: pointer;
-  }
-}
-
-.category {
-  height: 90px;
-  width: 700px;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  top: 0px;
-  left: 250px;
-}
-
-.navUl {
-  display: flex;
-
-  li {
-    margin: 7px;
-    font-size: 18px;
-  }
-  li:hover {
-    cursor: pointer;
-  }
-}
-
-.navIcon {
-  display: flex;
-  width: 200px;
-  margin-left: auto;
-
-  span {
-    border: 2px solid black;
-    border-radius: 20px;
-    padding: 5px;
-    font-size: 12px;
-    font-weight: bold;
+  .original-header {
+    background-color: rgba(255, 255, 255, 0);
   }
 
-  li {
-    margin: 10px;
-    font-size: 18px;
+  .change-header {
+    background-color: white;
+    border-bottom: 1px solid black;
   }
-  li:hover {
-    cursor: pointer;
+
+  .nav-bar {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    padding: 0 40px;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    h1:hover {
+      cursor: pointer;
+    }
+
+    .category {
+      height: 90px;
+      width: 700px;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      top: 0px;
+      left: 250px;
+
+      .nav-ul {
+        display: flex;
+
+        li {
+          margin: 7px;
+          font-size: 18px;
+        }
+
+        li:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .nav-icon {
+      display: flex;
+      width: 200px;
+      margin-left: auto;
+
+      span {
+        border: 2px solid black;
+        border-radius: 20px;
+        padding: 5px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      li {
+        margin: 10px;
+        font-size: 18px;
+      }
+
+      li:hover {
+        cursor: pointer;
+      }
+    }
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  .navBar {
+  .nav-bar {
     width: 1200px;
   }
 }
