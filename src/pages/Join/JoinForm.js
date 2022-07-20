@@ -25,25 +25,17 @@ const JoinForm = () => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const [disabled, setDisabled] = useState(true);
-  const isDisabled = () => {
+  const isValid =
     userId.includes('.') &&
+    userId.includes('@') &&
     userId.length >= 5 &&
     userPw.length >= 5 &&
     pwCheck === userPw &&
-    userName.length > 3 &&
-    userPhoneNumber.length > 0
-      ? setDisabled(false)
-      : setDisabled(true);
-  };
+    userName.length >= 2 &&
+    userPhoneNumber.length > 10;
 
   return (
-    <form
-      className="join-form"
-      onSubmit={postUserData}
-      onKeyUp={isDisabled}
-      onChange={handleInput}
-    >
+    <form className="join-form" onSubmit={postUserData} onChange={handleInput}>
       <h2 className="join-title">회원가입</h2>
       <div className="join-contnet">
         <ul className="join-form-list">
@@ -52,7 +44,6 @@ const JoinForm = () => {
               <li key={input.id}>
                 <div className="input-box-error">
                   <input
-                    className="inputtype"
                     onChange={handleInput}
                     name={input.name}
                     type={input.type}
@@ -79,7 +70,7 @@ const JoinForm = () => {
       </div>
 
       <div className="join-button">
-        <button className="join-button-submit" disabled={disabled}>
+        <button className="join-button-submit" disabled={!isValid}>
           회원가입
         </button>
       </div>
