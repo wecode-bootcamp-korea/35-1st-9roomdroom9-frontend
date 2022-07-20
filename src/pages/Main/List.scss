@@ -1,0 +1,20 @@
+.listContainer {
+  width: 280px;
+  height: 400px;
+  margin-bottom: 60px;
+
+  &:hover {
+    color: #2ac1bc;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  p {
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+    margin-top: 20px;
+  }
+}

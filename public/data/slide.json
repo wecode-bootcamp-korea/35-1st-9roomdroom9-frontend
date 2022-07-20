@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "src": "/images/visual1.png",
+    "text": "첫번째 슬라이드 버튼",
+    "alt": "첫번째이미지"
+  },
+  {
+    "id": 2,
+    "src": "https://cdn-mart.baemin.com/inventory-unit/e59265a2-ef6f-4110-a3c5-00d466520b40.png",
+    "text": "두번째 슬라이드 버튼",
+    "alt": "두번째이미지"
+  },
+  {
+    "id": 3,
+    "src": "https://cdn-mart.baemin.com/inventory-unit/e59265a2-ef6f-4110-a3c5-00d466520b40.png",
+    "text": "세번째 슬라이드 버튼",
+    "alt": "세번째이미지"
+  }
+]
