@@ -3,7 +3,7 @@ import './ImgList.scss';
 
 const ImgList = ({ src }) => {
   return (
-    <div className="sliderContainer">
+    <div className="img-list">
       <img src={src} alt="슬라이드이미지" />
     </div>
   );

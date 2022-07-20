@@ -3,7 +3,7 @@ import './List.scss';
 
 const List = ({ imgUrl, name, price }) => {
   return (
-    <div className="listContainer">
+    <div className="list-container">
       <img src={imgUrl} alt="이미지" />
       <p>{name}</p>
       <p>{price}</p>

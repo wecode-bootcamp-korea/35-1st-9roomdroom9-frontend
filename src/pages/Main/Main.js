@@ -18,7 +18,7 @@ const Main = () => {
   return (
     <div className="main">
       <Slides />
-      <div className="menuWrap">
+      <div className="menu-wrap">
         <div className="best">
           <h2>요즘 잘 나가요</h2>
           <BestList best={best} />

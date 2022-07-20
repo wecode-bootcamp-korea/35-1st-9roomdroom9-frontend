@@ -4,7 +4,7 @@ import './BestList.scss';
 
 const BestList = ({ best }) => {
   return (
-    <div className="BestList">
+    <div className="best-list">
       {best.map(product => {
         return (
           <List

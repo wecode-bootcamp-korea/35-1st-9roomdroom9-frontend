@@ -19,7 +19,7 @@ const Slides = () => {
         <div className="prev" />
         <div className="next" />
       </div>
-      <div className="visualDote">
+      <div className="visual-dote">
         <span>1</span>
         <span>2</span>
         <span>3</span>

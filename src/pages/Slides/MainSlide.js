@@ -4,7 +4,7 @@ import './MainSlide.scss';
 
 const MainSlide = ({ slideList }) => {
   return (
-    <div className="MainSlide">
+    <div className="main-slide">
       {slideList.map(slideImg => {
         return (
           <ImgList key={slideImg.id} id={slideImg.id} src={slideImg.src} />
