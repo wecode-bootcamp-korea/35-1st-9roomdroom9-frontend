@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "product": "배달이친구들 팝업카드 2종",
+    "option": "오래오래",
+    "quantity": 1,
+    "price": 4000
+  },
+  {
+    "id": 2,
+    "product": "배달이친구들 손바닥양면노트 2종",
+    "option": "감자배달이",
+    "quantity": 5,
+    "price": 2000
+  },
+  {
+    "id": 3,
+    "product": "배달이친구들 팝업카드 2종",
+    "option": "잘먹고 잘살자",
+    "quantity": 3,
+    "price": 4000
+  }
+]

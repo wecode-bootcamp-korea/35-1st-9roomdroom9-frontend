@@ -1,7 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import CartItem from './CartItem';
 import './Cart.scss';
 
 const Cart = () => {
+  const [cartList, setCartList] = useState([]);
+
+  const onChangeProps = (id, key, value) => {
+    setCartList(prevState => {
+      return prevState.map(obj => {
+        if (obj.id === id) {
+          return { ...obj, [key]: value };
+        } else {
+          return { ...obj };
+        }
+      });
+    });
+  };
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/cartList.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        setCartList(data);
+      });
+  }, []);
+
   return (
     <div className="cart">
       <div className="title">
@@ -14,63 +39,45 @@ const Cart = () => {
               <input type="checkbox" />
               전체선택
             </label>
-            <span>선택삭제</span>
+            <button>선택삭제</button>
           </div>
           <div className="product">
             <ul>
-              <li>
-                <input type="checkbox" />
-                <div className="img" />
-                <div className="text">
-                  <span>배달이친구들 손바닥양면노트 2종</span>
-                </div>
-                <div>
-                  <button>-</button>
-                  <input type="number" value="1" />
-                  <button>+</button>
-                </div>
-                <div>
-                  <span>0원</span>
-                  <button>x</button>
-                </div>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <div className="img" />
-                <div className="text">
-                  <span>배달이친구들 손바닥양면노트 2종</span>
-                </div>
-                <div>
-                  <button>-</button>
-                  <input type="number" value="1" />
-                  <button>+</button>
-                </div>
-                <div>
-                  <span>0원</span>
-                  <button>x</button>
-                </div>
-              </li>
+              {cartList.map((item, i) => {
+                return (
+                  <CartItem
+                    key={item.id}
+                    item={item}
+                    onChangeProps={onChangeProps}
+                  />
+                );
+              })}
             </ul>
           </div>
         </div>
         <div className="paymentArea">
           <div className="paymentResult">
             <table className="amount">
-              <tr>
-                <th>총 상품 금액</th>
-                <td>0원</td>
-              </tr>
-              <tr>
-                <th>배송비</th>
-                <td>+3000원</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <th>총 상품 금액</th>
+                  <td>0원</td>
+                </tr>
+                <tr>
+                  <th>배송비</th>
+                  <td>+3000원</td>
+                </tr>
+              </tbody>
             </table>
             <table className="total">
-              <tr>
-                <th>결제예상금액</th>
-                <td>3000원</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <th>결제예상금액</th>
+                  <td>3000원</td>
+                </tr>
+              </tbody>
             </table>
+            <button className="order">0원 주문하기</button>
           </div>
         </div>
       </div>
