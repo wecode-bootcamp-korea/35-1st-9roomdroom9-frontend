@@ -6,22 +6,23 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
+const categoryList = [
+  { text: '전체', navi: '/ItemList' },
+  { text: '문구', navi: '/ItemList' },
+  { text: '책/매거진F', navi: '/ItemList' },
+  { text: '구방그린', navi: '/ItemList' },
+  { text: '구방친구들', navi: '/ItemList' },
+  { text: '콜라보레이션', navi: '/ItemList' },
+  { text: '명예의 전당', navi: '/ItemList' },
+];
+const iconList = [
+  { icon: faMagnifyingGlass, navi: '', text: '' },
+  { icon: faCartShopping, navi: '/Cart', text: '' },
+  { icon: '', navi: '/Login', text: '로그인' },
+  { icon: faBars, navi: '', text: '' },
+];
+
 const Nav = () => {
-  const categoryList = [
-    { text: '전체', navi: '/ItemList' },
-    { text: '문구', navi: '/ItemList' },
-    { text: '책/매거진F', navi: '/ItemList' },
-    { text: '구방그린', navi: '/ItemList' },
-    { text: '구방친구들', navi: '/ItemList' },
-    { text: '콜라보레이션', navi: '/ItemList' },
-    { text: '명예의 전당', navi: '/ItemList' },
-  ];
-  const iconList = [
-    { icon: faMagnifyingGlass, navi: '', text: '' },
-    { icon: faCartShopping, navi: '/Cart', text: '' },
-    { icon: '', navi: '/Login', text: '로그인' },
-    { icon: faBars, navi: '', text: '' },
-  ];
   const navigate = useNavigate();
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -33,7 +34,7 @@ const Nav = () => {
   useEffect(() => {
     window.addEventListener('scroll', updateScroll);
     return () => {
-      document.removeEventLisnter('scroll', updateScroll);
+      document.removeEventListener('scroll', updateScroll);
     };
   }, []);
 

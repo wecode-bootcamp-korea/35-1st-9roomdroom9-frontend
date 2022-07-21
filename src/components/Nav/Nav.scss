@@ -1,9 +1,10 @@
 .nav {
   position: sticky;
-  width: 100%;
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  z-index: 10;
 
   .original-header {
     background-color: rgba(255, 255, 255, 0);
@@ -11,34 +12,30 @@
 
   .change-header {
     background-color: white;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #dddddd;
   }
 
   .nav-bar {
-    height: 90px;
-    width: 100%;
     display: flex;
+    justify-content: space-between;
+    height: 90px;
     padding: 0 40px;
     align-items: center;
-    justify-content: space-between;
 
     h1 {
       font-size: 35px;
       font-weight: bold;
-    }
-
-    h1:hover {
       cursor: pointer;
     }
 
     .category {
-      height: 90px;
-      width: 700px;
       position: absolute;
       display: flex;
-      align-items: center;
       top: 0px;
       left: 250px;
+      width: 700px;
+      height: 90px;
+      align-items: center;
 
       .nav-ul {
         display: flex;
@@ -46,9 +43,6 @@
         li {
           margin: 7px;
           font-size: 18px;
-        }
-
-        li:hover {
           cursor: pointer;
         }
       }
@@ -60,9 +54,9 @@
       margin-left: auto;
 
       span {
+        padding: 5px;
         border: 2px solid black;
         border-radius: 20px;
-        padding: 5px;
         font-size: 12px;
         font-weight: bold;
       }
@@ -70,9 +64,6 @@
       li {
         margin: 10px;
         font-size: 18px;
-      }
-
-      li:hover {
         cursor: pointer;
       }
     }
