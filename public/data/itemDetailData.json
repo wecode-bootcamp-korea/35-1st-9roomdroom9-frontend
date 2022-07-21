@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "위스티커 멋저부령",
+    "title": "재생지에 콩기름으로 인쇄한 일기장",
+    "price": 3500,
+    "count": 1,
+    "img_urls": "https://images.unsplash.com/photo-1526614180703-827d23e7c8f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTI0fHxwYXBlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    "alt": "위스티커"
+  },
+  {
+    "id": 2,
+    "name": "상품2번째",
+    "title": "상품2번쨰의 타이틀이에요",
+    "price": 4000,
+    "count": 1,
+    "img_urls": "https://images.unsplash.com/photo-1646423225693-87b585201127?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+  },
+  {
+    "id": 3,
+    "name": "상품3번째",
+    "title": "상품3번쨰의 타이틀이에요",
+    "price": 1000,
+    "count": 1,
+    "img_urls": "https://images.unsplash.com/photo-1557686652-6731ba12410f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+  }
+]

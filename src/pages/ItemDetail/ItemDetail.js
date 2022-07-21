@@ -1,38 +1,68 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ItemDetail.scss';
 
 const ItemDetail = () => {
+  const [quantity, setQuantity] = useState(1);
+  const [itemData, setItemInfo] = useState([]);
+  const { name, title, price, img_urls, alt } = itemData;
+
+  useEffect(() => {
+    fetch('/data/itemDetailData.json')
+      .then(res => res.json())
+      .then(data => {
+        setItemInfo(data[0]);
+      });
+  }, []);
+
+  const isData = itemData.length !== 0;
+  if (!isData) return <>데이터 불러오는중...로딩중입니다.</>;
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    quantity > 0 && setQuantity(quantity - 1);
+  };
+
   return (
     <div className="item-detail">
       <div className="item-detail-view">
         <div className="item-detail-view_header">
           <div className="item-detail-info">
-            <h3 className="name">위달이친구들 손바닥양면노트2종</h3>
-            <p className="price">2,000원</p>
+            <h3 className="name">{title}</h3>
+            <p className="price">{price.toLocaleString('ko-KR')}원</p>
           </div>
           <div className="item-detail-swiper">
-            <img src="images/itemDetail/itemslide.gif" alt="상품슬라이드" />
+            <img src={img_urls} alt={alt} />
           </div>
           <div className="item-detail-order">
             <div className="shipping-guide">
               <div className="shipping-info">배송정보</div>
               <div className="shipping-price">
                 3,000원 (30,000원 이상 구매 시 무료)
+                <br />
+                오후 1시 당일배송마감
               </div>
-              <br />
-              오후 1시 당일배송마감
             </div>
             <div className="item-buy">
               <div className="item-buy-content">
                 <div className="item-buy-list">
                   <div className="item-buy-list-box">
-                    <h4>감자그만괴롭혀</h4>
+                    <h4>{name}</h4>
                     <div className="item-buy-options">
                       <div className="quantity">
-                        <input type="number" value={1} />
-                        <button className="btn-minus">-</button>
-                        <button className="btn-plus">+</button>
+                        <input type="number" value={quantity} readOnly />
+                        <button
+                          className="btn-minus"
+                          onClick={decreaseQuantity}
+                        >
+                          -
+                        </button>
+                        <button className="btn-plus" onClick={increaseQuantity}>
+                          +
+                        </button>
                       </div>
                       <p className="price">
                         <span>3,500원</span>
@@ -43,7 +73,7 @@ const ItemDetail = () => {
                 <div className="item-total-price">
                   <div className="total-price">총 금액</div>
                   <div className="single-price">
-                    <span>3,500원</span>
+                    <span> {(quantity * price).toLocaleString('ko-KR')}원</span>
                   </div>
                 </div>
                 <div className="item-btn-group">
@@ -79,7 +109,7 @@ const ItemDetail = () => {
                 <tbody>
                   <tr>
                     <th>제품명</th>
-                    <td>위코드친구들 손바닥양면노트</td>
+                    <td>{name}</td>
                   </tr>
                   <tr>
                     <th>
@@ -119,62 +149,3 @@ const ItemDetail = () => {
 };
 
 export default ItemDetail;
-
-const ITEM_DETAIL_DATA = [
-  {
-    id: 1,
-    name: '상품1번째',
-    price: 3000.0,
-    count: 1,
-    thumbnail_image:
-      'https://images.unsplash.com/photo-1644307358784-c6c589c9dcac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=673&q=80',
-  },
-  {
-    id: 2,
-    name: '상품2번째',
-    price: 4000.0,
-    count: 4,
-    thumbnail_image:
-      'https://images.unsplash.com/photo-1646423225693-87b585201127?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
-  },
-  {
-    id: 3,
-    name: '상품3번째',
-    price: 1000.0,
-    count: 1,
-    thumbnail_image:
-      'https://images.unsplash.com/photo-1557686652-6731ba12410f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-  },
-  {
-    id: 4,
-    name: '상품4번째',
-    price: 4000.0,
-    count: 2,
-    thumbnail_image:
-      'https://images.unsplash.com/photo-1557686652-6731ba12410f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-  },
-  {
-    id: 5,
-    name: '상품5번째',
-    price: 4000.0,
-    count: 6,
-    thumbnail_image:
-      'https://images.unsplash.com/photo-1557686652-6731ba12410f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-  },
-  {
-    id: 6,
-    name: '상품6번째',
-    price: 4000.0,
-    count: 1,
-    thumbnail_image:
-      'https://images.unsplash.com/photo-1557686652-6731ba12410f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-  },
-  {
-    id: 7,
-    name: '상품7번째',
-    price: 1000.0,
-    count: 3,
-    thumbnail_image:
-      'https://images.unsplash.com/photo-1557686652-6731ba12410f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-  },
-];
