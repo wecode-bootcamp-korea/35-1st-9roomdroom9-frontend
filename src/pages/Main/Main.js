@@ -8,9 +8,7 @@ const Main = () => {
 
   //데이터 로딩
   useEffect(() => {
-    fetch('/data/data.json', {
-      method: 'GET',
-    })
+    fetch('/data/data.json')
       .then(res => res.json())
       .then(result => setBest(result));
   }, []);
@@ -26,6 +24,10 @@ const Main = () => {
         <div className="banner" />
         <div className="new">
           <h2>새로 나왔어요</h2>
+          <BestList best={best} />
+        </div>
+        <div className="sail">
+          <h2>지금은 할인중</h2>
           <BestList best={best} />
         </div>
       </div>
