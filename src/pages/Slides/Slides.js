@@ -33,7 +33,7 @@ const Slides = () => {
     return () => {
       clearInterval(autoSlide);
     };
-  }, [leftValue]);
+  }, [leftValue, slideList.length]);
 
   return (
     <div className="slides">
