@@ -1,0 +1,40 @@
+.new-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .new-list-wrap {
+    width: 300px;
+    margin-bottom: 80px;
+    text-align: center;
+    margin-right: 66px;
+
+    &:nth-of-type(4) {
+      margin-right: 0px;
+    }
+
+    &:last-of-type {
+      margin-right: 0px;
+    }
+
+    .new-list-img-box {
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 400px;
+      }
+    }
+
+    .new-list-name-box {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+
+    .new-list-price-box {
+      margin-top: 20px;
+      font-weight: 700;
+      font-size: 20px;
+    }
+  }
+}

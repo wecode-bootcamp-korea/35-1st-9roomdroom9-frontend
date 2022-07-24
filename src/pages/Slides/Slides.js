@@ -13,7 +13,6 @@ const Slides = () => {
       .then(result => setSlideList(result));
   }, []);
 
-  // 이미지 슬라이드 기능 구현
   const prevSlide = () => {
     leftValue === 0 ? setLeftValue(-200) : setLeftValue(leftValue + 100);
   };
@@ -42,9 +41,6 @@ const Slides = () => {
         <div className="prev" onClick={prevSlide} />
         <div className="next" onClick={nextSlide} />
       </div>
-      {/* <div className="visual-dote">
-        <span className="dot" />
-      </div> */}
     </div>
   );
 };
