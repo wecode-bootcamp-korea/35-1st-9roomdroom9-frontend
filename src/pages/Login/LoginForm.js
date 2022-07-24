@@ -39,16 +39,17 @@ const LoginForm = () => {
   });
 
   const { userId, userPw } = inputValue;
+
   const handleInput = e => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const isValid =
-    userId.includes('@') &&
-    userId.includes('.') &&
-    userId.length >= 5 &&
-    userPw.length >= 5;
+  const REGEX_PASSWORD =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[?!@#$%*&])[A-Za-z\d?!@#$%*&]{8,}$/;
+  const REGEX_EMAIL = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
+
+  const isValid = REGEX_EMAIL.test(userId) && REGEX_PASSWORD.test(userPw);
 
   return (
     <form className="login-form" onSubmit={postUserData} onChange={handleInput}>
