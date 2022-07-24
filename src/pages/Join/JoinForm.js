@@ -51,19 +51,21 @@ const JoinForm = () => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const REG_PHONE_NUMBER = /^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$/;
-  const REG_BIRTHDAY =
-    /^(19\d{2}|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
-  const REG_EMAIL = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+  const REGEX_EMAIL = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+  const REGEX_PASSWORD =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[?!@#$%*&])[A-Za-z\d?!@#$%*&]{8,}$/;
   const REGEX_NAME = /^[가-힣]{2,5}$/;
+  const REGEX_PHONE_NUMBER = /^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$/;
+  const REGEX_BIRTHDAY =
+    /^(19\d{2}|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
 
   const isValid =
-    userPw.length >= 5 &&
+    REGEX_PASSWORD.test(userPw) &&
     pwCheck === userPw &&
     REGEX_NAME.test(userName) &&
-    REG_EMAIL.test(userId) &&
-    REG_PHONE_NUMBER.test(userPhoneNumber) &&
-    (REG_BIRTHDAY.test(userBirthday) || userBirthday === null);
+    REGEX_EMAIL.test(userId) &&
+    REGEX_PHONE_NUMBER.test(userPhoneNumber) &&
+    (REGEX_BIRTHDAY.test(userBirthday) || userBirthday === null);
 
   return (
     <form className="join-form" onSubmit={postUserData}>
