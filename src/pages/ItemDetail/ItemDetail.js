@@ -1,22 +1,70 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './ItemDetail.scss';
+import First from './components/First';
+import Second from './components/Second';
+import Third from './components/Third';
 
 const ItemDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [itemData, setItemInfo] = useState([]);
-  const { name, title, price, img_urls, alt } = itemData;
+  const [currentId, setCurrentId] = useState(1);
+
+  const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/data/itemDetailData.json')
+    fetch(`http://10.58.0.70:8000/products/detail/${params.id}`)
       .then(res => res.json())
       .then(data => {
-        setItemInfo(data[0]);
+        setItemInfo(data.result);
       });
-  }, []);
+  }, [params.id]);
 
   const isData = itemData.length !== 0;
-  if (!isData) return <>데이터 불러오는중...로딩중입니다.</>;
+  if (!isData) return <>로딩중입니다....</>;
+
+  const { name, price, images, alt, options, is_best, is_green } = itemData;
+
+  const product_option_id =
+    itemData.options[0].product_option_information[0].product_option_id;
+
+  const token = localStorage.getItem('token');
+  const goToCart = () => {
+    if (!token) {
+      alert('로그인이 필요해요!');
+      navigate('/Login');
+      return;
+    }
+
+    fetch('http://10.58.0.70:8000/carts', {
+      method: 'POST',
+      headers: { Authorization: token },
+      body: JSON.stringify({
+        quantity: quantity,
+        product_option: product_option_id,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          window.confirm(
+            '장바구니에 담겼습니다. 장바구니 페이지로 이동할까요?'
+          ) && navigate('/Cart');
+        } else {
+          alert('예외의 경우 테스트 알람');
+        }
+      });
+  };
+
+  // 상수데이터 화면 보기용으로 두겠습니다.
+  // useEffect(() => {
+  //   fetch('/data/itemDetailData.json')
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setItemInfo(data[0]);
+  //     });
+  // }, []);
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
@@ -26,16 +74,28 @@ const ItemDetail = () => {
     quantity > 0 && setQuantity(quantity - 1);
   };
 
+  const clickHandler = id => {
+    setCurrentId(id);
+  };
+
+  const priceMin = 1;
+
   return (
     <div className="item-detail">
       <div className="item-detail-view">
         <div className="item-detail-view_header">
           <div className="item-detail-info">
-            <h3 className="name">{title}</h3>
-            <p className="price">{price.toLocaleString('ko-KR')}원</p>
+            <div className="badge">
+              <span className="badge-best">{is_best ? 'BEST' : ''}</span>
+              <span className="badge-green">{is_green ? 'BEST' : ''}</span>
+            </div>
+            <h3 className="name">{name}</h3>
+            <p className="price">
+              {(priceMin * price).toLocaleString('ko-KR')}원
+            </p>
           </div>
           <div className="item-detail-swiper">
-            <img src={img_urls} alt={alt} />
+            <img src={images[0].url} alt={alt} />
           </div>
           <div className="item-detail-order">
             <div className="shipping-guide">
@@ -50,7 +110,7 @@ const ItemDetail = () => {
               <div className="item-buy-content">
                 <div className="item-buy-list">
                   <div className="item-buy-list-box">
-                    <h4>{name}</h4>
+                    <h4>{options[0].name}</h4>
                     <div className="item-buy-options">
                       <div className="quantity">
                         <input type="number" value={quantity} readOnly />
@@ -65,7 +125,9 @@ const ItemDetail = () => {
                         </button>
                       </div>
                       <p className="price">
-                        <span>3,500원</span>
+                        <span>
+                          {(quantity * price).toLocaleString('ko-KR')}원
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -77,7 +139,9 @@ const ItemDetail = () => {
                   </div>
                 </div>
                 <div className="item-btn-group">
-                  <button className="btn-cart">장바구니</button>
+                  <button onClick={goToCart} className="btn-cart">
+                    장바구니
+                  </button>
                   <button className="btn-base">바로 구매하기</button>
                 </div>
               </div>
@@ -87,61 +151,20 @@ const ItemDetail = () => {
         <div className="item-detail-veiw-content">
           <div className="item-detail-tabs">
             <ul>
-              <li className="active">
-                <Link to="/">상품정보</Link>
-              </li>
-              <li>
-                <Link to="/">기본정보</Link>
-              </li>
-              <li>
-                <Link to="/">상품후기</Link>
-              </li>
+              {CATEGORY_ARR.map((category, idx) => {
+                return (
+                  <li
+                    key={category + idx}
+                    className={category}
+                    onClick={() => clickHandler(idx + 1)}
+                  >
+                    {category}
+                  </li>
+                );
+              })}
             </ul>
+            {MAPPING_OBJ[currentId]}
           </div>
-          <section className="item-detail-view-box">
-            <h3 className="blind">상품정보</h3>
-            <div className="item-detail-info-img">
-              <img src="images/itemDetail/itemDetail.jpeg" alt="상품설명" />
-            </div>
-            <div className="item-detail-info">
-              <h4>상품상세정보</h4>
-              <table>
-                <tbody>
-                  <tr>
-                    <th>제품명</th>
-                    <td>{name}</td>
-                  </tr>
-                  <tr>
-                    <th>
-                      법에 의한 인증 · 허가 등을 받았음을 확인할 수 있는 경우
-                      그에 대한 사항
-                    </th>
-                    <td>해당없음</td>
-                  </tr>
-                  <tr>
-                    <th>크기</th>
-                    <td>70x95mm</td>
-                  </tr>
-                  <tr>
-                    <th>제조사 및 수입자명</th>
-                    <td>위코드문방구</td>
-                  </tr>
-                  <tr>
-                    <th>제조국</th>
-                    <td>한국</td>
-                  </tr>
-                  <tr>
-                    <th>사용연령</th>
-                    <td>8세 이상</td>
-                  </tr>
-                  <tr>
-                    <th>상품문의</th>
-                    <td>1:1 문의게시판으로 문의해주세요</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
         </div>
       </div>
     </div>
@@ -149,3 +172,11 @@ const ItemDetail = () => {
 };
 
 export default ItemDetail;
+
+const MAPPING_OBJ = {
+  1: <First />,
+  2: <Second />,
+  3: <Third />,
+};
+
+const CATEGORY_ARR = ['상품정보', '기본정보', '상품후기'];
