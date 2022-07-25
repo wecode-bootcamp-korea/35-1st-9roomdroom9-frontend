@@ -14,10 +14,10 @@ const Main = () => {
       .then(result => setBest(result));
   }, []);
 
+  const { new_products, best_products, green_products } = best;
+
   const isData = best.length !== 0;
   if (!isData) return <>로딩중입니다....</>;
-
-  const { new_products, best_products, green_products } = best;
 
   return (
     <div className="main">

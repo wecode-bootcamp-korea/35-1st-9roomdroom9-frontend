@@ -3,7 +3,6 @@ import './NewList.scss';
 
 const NewList = new_products => {
   const min = 1;
-  // console.log(new_products);
   const { data } = new_products;
 
   return (

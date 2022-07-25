@@ -3,7 +3,6 @@ import './GreenList.scss';
 
 const GreenList = green_products => {
   const min = 1;
-  // console.log(green_products);
   const { data } = green_products;
 
   return (

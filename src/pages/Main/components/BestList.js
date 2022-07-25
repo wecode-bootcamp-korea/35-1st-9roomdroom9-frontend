@@ -3,7 +3,6 @@ import './BestList.scss';
 
 const BestList = best_products => {
   const min = 1;
-  // console.log(best_products);
   const { data } = best_products;
 
   return (
