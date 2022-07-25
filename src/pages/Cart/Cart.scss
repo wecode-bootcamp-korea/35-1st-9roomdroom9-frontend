@@ -11,14 +11,37 @@
     font-weight: bold;
   }
 
-  .cartWrap {
+  .cart-wrap {
     position: relative;
     width: 960px;
+    height: 100%;
     margin: 0 auto;
     display: flex;
     justify-items: center;
 
-    .cartContent {
+    .empty-product {
+      position: relative;
+      width: 680px;
+      margin-top: 36px;
+      padding-right: 40px;
+      margin-right: 40px;
+      padding-top: 140px;
+      padding-bottom: 140px;
+      text-align: center;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+
+      .empty-text {
+        font-size: 40px;
+        font-weight: bold;
+      }
+      .empty-text-sub {
+        padding-top: 30px;
+        font-size: 20px;
+      }
+    }
+
+    .cart-content {
       position: relative;
       width: 680px;
       display: flex;
@@ -27,8 +50,7 @@
       padding-right: 40px;
       margin-right: 40px;
 
-      .cartTop {
-        height: 50px;
+      .cart-top {
         display: flex;
         justify-content: space-between;
 
@@ -53,7 +75,7 @@
         }
       }
 
-      .product {
+      .product-list {
         height: 100%;
 
         ul {
@@ -68,17 +90,21 @@
 
           border-top: 1px solid #ddd;
 
-          .img {
+          .product-img {
             width: 110px;
             height: 110px;
-            border: 1px solid #ddd;
+
+            img {
+              width: 110px;
+              height: 110px;
+            }
           }
 
-          .text {
+          .product-name {
             width: 250px;
           }
 
-          .quantity {
+          .product-quantity {
             input[type='number'] {
               width: 45px;
               height: 25px;
@@ -119,6 +145,7 @@
         cursor: pointer;
       }
     }
+
     .cartContent:after {
       position: absolute;
       top: 36px;
@@ -130,7 +157,7 @@
       content: '';
     }
 
-    .paymentArea {
+    .payment-area {
       position: absolute;
       top: 0;
       right: 0;
@@ -138,9 +165,9 @@
       height: 100%;
       padding-top: 36px;
 
-      .paymentResult {
+      .payment-result {
         position: sticky;
-        top: 120px;
+        top: 160px;
 
         th {
           text-align: left;
@@ -178,12 +205,26 @@
           font-weight: bold;
         }
 
-        .order {
+        .order-ok {
           width: 100%;
           height: 50px;
           margin-top: 20px;
           border: none;
           border-radius: 10px;
+          cursor: pointer;
+          background-color: #2ac1bc;
+          color: #ffffff;
+          font-weight: bold;
+          font-size: 15px;
+        }
+
+        .order-fail {
+          width: 100%;
+          height: 50px;
+          margin-top: 20px;
+          border: none;
+          border-radius: 10px;
+          cursor: default;
         }
       }
     }

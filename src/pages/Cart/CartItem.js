@@ -1,50 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-const CartItem = ({ item, onChangeProps }) => {
-  const [isBtnValid, setIsBtnValid] = useState(true);
-
-  const amountInputHandler = event => {
-    0 < event.target.value
-      ? onChangeProps(item.id, 'quantity', event.target.value)
-      : onChangeProps(item.id, 'quantity', 1);
-  };
-
-  const amountIncreaseHandler = event => {
-    event.preventDefault();
-    onChangeProps(item.id, 'quantity', item.quantity + 1);
-  };
-
-  const amountDecreaseHandler = event => {
-    event.preventDefault();
-    onChangeProps(item.id, 'quantity', item.quantity - 1);
-  };
-
-  useEffect(() => {
-    setIsBtnValid(item.quantity > 1);
-  }, [item.quantity]);
-
+const CartItem = ({
+  cartItem,
+  onIncrement,
+  onDecrement,
+  checkedList,
+  onChecked,
+  onRemove,
+  onInputChange,
+}) => {
   return (
-    <li key={item.id}>
-      <input type="checkbox" />
-      <div className="img" />
-      <div className="text">
-        <p>{item.product}</p>
-        <p>{item.option}</p>
+    <li>
+      <input
+        type="checkbox"
+        onChange={e => onChecked(e.target.checked, cartItem)}
+        checked={checkedList.includes(cartItem) ? true : false}
+      />
+      <div className="product-img">
+        <img src={cartItem.product_image[0]} alt={cartItem.product} />
       </div>
-      <div className="quantity">
-        <button onClick={amountDecreaseHandler} disabled={!isBtnValid}>
-          -
-        </button>
+      <div className="product-name">
+        <p>{cartItem.product_name}</p>
+      </div>
+      <div className="product-quantity">
+        <button onClick={() => onDecrement(cartItem)}>-</button>
         <input
           type="number"
-          onChange={amountInputHandler}
-          value={item.quantity}
+          onChange={e => onInputChange(e, cartItem)}
+          value={cartItem.quantity}
         />
-        <button onClick={amountIncreaseHandler}>+</button>
+        <button onClick={() => onIncrement(cartItem)}>+</button>
       </div>
       <div className="price-check">
-        <span>{item.price * item.quantity + '원'}</span>
-        <button>x</button>
+        <span>
+          {(cartItem.product_price * cartItem.quantity).toLocaleString('en') +
+            '원'}
+        </span>
+        <button onClick={() => onRemove(cartItem)}>x</button>
       </div>
     </li>
   );
