@@ -6,17 +6,17 @@ import Slides from '../Slides/Slides';
 import './Main.scss';
 
 const Main = () => {
-  const [best, setBest] = useState([]);
+  const [mainList, setMainList] = useState([]);
 
   useEffect(() => {
     fetch('http://10.58.0.44:8000/products/main')
       .then(res => res.json())
-      .then(result => setBest(result));
+      .then(result => setMainList(result));
   }, []);
 
-  const { new_products, best_products, green_products } = best;
+  const { new_products, best_products, green_products } = mainList;
 
-  const isData = best.length !== 0;
+  const isData = mainList.length !== 0;
   if (!isData) return <>로딩중입니다....</>;
 
   return (
