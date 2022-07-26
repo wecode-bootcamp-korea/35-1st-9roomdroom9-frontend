@@ -14,7 +14,7 @@ const ItemDetail = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://10.58.0.70:8000/products/detail/${params.id}`)
+    fetch(`http://10.58.5.151:8000/products/detail/${params.id}`)
       .then(res => res.json())
       .then(data => {
         setItemInfo(data.result);
@@ -22,22 +22,21 @@ const ItemDetail = () => {
   }, [params.id]);
 
   const isData = itemData.length !== 0;
-  if (!isData) return <>로딩중입니다....</>;
-
+  // console.log(itemData);
   const { name, price, images, alt, options, is_best, is_green } = itemData;
 
-  const product_option_id =
-    itemData.options[0].product_option_information[0].product_option_id;
-
-  const token = localStorage.getItem('token');
   const goToCart = () => {
-    if (!token) {
+    const token = localStorage.getItem('token');
+
+    const product_option_id =
+      itemData.options[0].product_option_information[0].product_option_id;
+
+    if (token) {
       alert('로그인이 필요해요!');
       navigate('/Login');
       return;
     }
-
-    fetch('http://10.58.0.70:8000/carts', {
+    fetch('http://10.58.1.167:8000/carts', {
       method: 'POST',
       headers: { Authorization: token },
       body: JSON.stringify({
@@ -80,7 +79,9 @@ const ItemDetail = () => {
 
   const priceMin = 1;
 
-  return (
+  return !isData ? (
+    <div>로딩중입니다....</div>
+  ) : (
     <div className="item-detail">
       <div className="item-detail-view">
         <div className="item-detail-view_header">
