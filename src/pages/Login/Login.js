@@ -12,7 +12,7 @@ const Login = () => {
           {INPUT_NAV_DATA.map(nav => {
             return (
               <li key={nav.id}>
-                <Link to="">{nav.link}</Link>
+                <Link to="/Join">{nav.link}</Link>
               </li>
             );
           })}

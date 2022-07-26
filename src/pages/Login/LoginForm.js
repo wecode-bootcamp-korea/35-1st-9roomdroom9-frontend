@@ -4,9 +4,33 @@ import './LoginForm.scss';
 
 const LoginForm = () => {
   const navigate = useNavigate();
+
   const postUserData = e => {
     e.preventDefault();
-    navigate('/');
+    fetch('http://10.58.0.70:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: userId,
+        password: userPw,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.access_token) {
+          localStorage.setItem('token', result.access_token);
+          localStorage.setItem('name', result.name);
+          alert(`로그인을 환영합니다 ${userId}님`);
+          navigate('/');
+        } else if (result.message === 'INVALID_USER') {
+          alert(
+            '아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.'
+          );
+        } else if (result.message === 'User matching query does not exist.') {
+          alert(
+            '아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.'
+          );
+        }
+      });
   };
 
   const [inputValue, setInputValue] = useState({
@@ -15,28 +39,20 @@ const LoginForm = () => {
   });
 
   const { userId, userPw } = inputValue;
+
   const handleInput = e => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const [disabled, setDisabled] = useState(true);
-  const isDisabled = () => {
-    userId.includes('@') &&
-    userId.includes('.') &&
-    userId.length >= 5 &&
-    userPw.length >= 5
-      ? setDisabled(false)
-      : setDisabled(true);
-  };
+  const REGEX_PASSWORD =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[?!@#$%*&])[A-Za-z\d?!@#$%*&]{8,}$/;
+  const REGEX_EMAIL = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
+
+  const isValid = REGEX_EMAIL.test(userId) && REGEX_PASSWORD.test(userPw);
 
   return (
-    <form
-      className="login-form"
-      onSubmit={postUserData}
-      onKeyUp={isDisabled}
-      onChange={handleInput}
-    >
+    <form className="login-form" onSubmit={postUserData} onChange={handleInput}>
       <h2 className="login-title">로그인</h2>
       <div className="login-contnet">
         <ul className="login-form-list">
@@ -59,7 +75,7 @@ const LoginForm = () => {
       </div>
 
       <div className="login-button">
-        <button className="login-button-submit" disabled={disabled}>
+        <button className="login-button-submit" disabled={!isValid}>
           로그인
         </button>
       </div>
