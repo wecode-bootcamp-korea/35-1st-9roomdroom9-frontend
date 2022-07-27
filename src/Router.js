@@ -8,10 +8,12 @@ import Footer from './components/Footer/Footer';
 import ItemDetail from './pages/ItemDetail/ItemDetail';
 import ItemList from './pages/ItemList/ItemList';
 import Cart from './pages/Cart/Cart';
+import ScrollToTop from './components/Scroll/Scroll';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
