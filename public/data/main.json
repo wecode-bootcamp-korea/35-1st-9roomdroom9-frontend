@@ -1,0 +1,382 @@
+{
+  "new_products": [
+    {
+      "id": 22,
+      "name": "돈봉투 골드에디션. 효도",
+      "price": "3500.00",
+      "is_green": false,
+      "is_best": false,
+      "images": [
+        {
+          "id": 43,
+          "url": "https://images.unsplash.com/photo-1518057715417-36a1f170a250?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80"
+        },
+        {
+          "id": 44,
+          "url": "https://images.unsplash.com/photo-1644489263913-d7536c8f97f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "볼펜세트. 어머펜이에요",
+      "price": "3500.00",
+      "is_green": false,
+      "is_best": true,
+      "images": [
+        {
+          "id": 41,
+          "url": "https://images.unsplash.com/photo-1625173615811-6b4d90fd2f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        },
+        {
+          "id": 42,
+          "url": "https://images.unsplash.com/photo-1557833158-a931ee896e24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "큰 쇼핑백. 뭘 이런걸 다",
+      "price": "2300.00",
+      "is_green": false,
+      "is_best": true,
+      "images": [
+        {
+          "id": 39,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FBw9QP%2FbtrH7Q2C3w3%2FxkwplkSTmysWK2rFLUo86K%2Fimg.png"
+        },
+        {
+          "id": 40,
+          "url": "https://images.unsplash.com/photo-1593354322782-0550797adc47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "작은 쇼핑백. 축복",
+      "price": "1800.00",
+      "is_green": false,
+      "is_best": true,
+      "images": [
+        {
+          "id": 37,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbL0u0a%2FbtrH2n71pdC%2FZdCUDS9fKyBegDkdJTYxs1%2Fimg.jpg"
+        },
+        {
+          "id": 38,
+          "url": "https://images.unsplash.com/photo-1524585186867-38c2914f1f4b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "엽서. 굿",
+      "price": "1000.00",
+      "is_green": false,
+      "is_best": false,
+      "images": [
+        {
+          "id": 35,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcTD4sy%2FbtrH7PbCF2u%2FoVngjqYCNFXf3Bd9hGfx5k%2Fimg.png"
+        },
+        {
+          "id": 36,
+          "url": "https://images.unsplash.com/photo-1608099593469-89d3c9ec43c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=662&q=80"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "엽서. 복",
+      "price": "1000.00",
+      "is_green": false,
+      "is_best": false,
+      "images": [
+        {
+          "id": 33,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FkZcqV%2FbtrH2olxvCa%2FsDtxzdn7d3eHGSrRSFcw51%2Fimg.png"
+        },
+        {
+          "id": 34,
+          "url": "https://images.unsplash.com/photo-1600378624049-ba424aee11b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "엽서. 축",
+      "price": "1000.00",
+      "is_green": false,
+      "is_best": false,
+      "images": [
+        {
+          "id": 31,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FuNE6A%2FbtrH2mVCNDh%2F6JojFMQpeSgqpU9jSNMwqK%2Fimg.png"
+        },
+        {
+          "id": 32,
+          "url": "https://images.unsplash.com/photo-1643833786397-34fbf5f0ac15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "을지로 마스킹테이프. 십메다줄자",
+      "price": "4500.00",
+      "is_green": false,
+      "is_best": false,
+      "images": [
+        {
+          "id": 29,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FIAFP3%2FbtrIekuD5r1%2FIhylTRDWbJ9NRBpv9KR5O0%2Fimg.png"
+        },
+        {
+          "id": 30,
+          "url": "https://images.unsplash.com/photo-1573997940776-d54954bc1f3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        }
+      ]
+    }
+  ],
+  "best_products": [
+    {
+      "id": 21,
+      "name": "볼펜세트. 어머펜이에요",
+      "price": "3500.00",
+      "is_green": false,
+      "is_best": true,
+      "images": [
+        {
+          "id": 41,
+          "url": "https://images.unsplash.com/photo-1625173615811-6b4d90fd2f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        },
+        {
+          "id": 42,
+          "url": "https://images.unsplash.com/photo-1557833158-a931ee896e24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "큰 쇼핑백. 뭘 이런걸 다",
+      "price": "2300.00",
+      "is_green": false,
+      "is_best": true,
+      "images": [
+        {
+          "id": 39,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FBw9QP%2FbtrH7Q2C3w3%2FxkwplkSTmysWK2rFLUo86K%2Fimg.png"
+        },
+        {
+          "id": 40,
+          "url": "https://images.unsplash.com/photo-1593354322782-0550797adc47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "작은 쇼핑백. 축복",
+      "price": "1800.00",
+      "is_green": false,
+      "is_best": true,
+      "images": [
+        {
+          "id": 37,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbL0u0a%2FbtrH2n71pdC%2FZdCUDS9fKyBegDkdJTYxs1%2Fimg.jpg"
+        },
+        {
+          "id": 38,
+          "url": "https://images.unsplash.com/photo-1524585186867-38c2914f1f4b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "잘나가요 세트",
+      "price": "15000.00",
+      "is_green": false,
+      "is_best": true,
+      "images": [
+        {
+          "id": 27,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbkp316%2FbtrH7QVUvN0%2FEZc1BW3Bctq7MJKrw3Rt9k%2Fimg.png"
+        },
+        {
+          "id": 28,
+          "url": "https://images.unsplash.com/photo-1529861192387-e2170fb232d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "컴퓨터용싸인펜. 오늘이 전설이 될 것이다",
+      "price": "1000.00",
+      "is_green": false,
+      "is_best": true,
+      "images": [
+        {
+          "id": 23,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FASFOI%2FbtrIdxBc6rm%2F8Xsg4NJ5P6n3Z7L1b6K24K%2Fimg.jpg"
+        },
+        {
+          "id": 24,
+          "url": "https://images.unsplash.com/photo-1532190410175-1c1a8169b1e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "종이로 만든 박스테이프. 60초 후에 공개됩니다",
+      "price": "4500.00",
+      "is_green": true,
+      "is_best": true,
+      "images": [
+        {
+          "id": 21,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd8ByvM%2FbtrIftkzG0O%2FHDok0BHTOpSkYv1MdKjk70%2Fimg.png"
+        },
+        {
+          "id": 22,
+          "url": "https://images.unsplash.com/photo-1595740041673-6a525c7be994?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "커피찌꺼기를 재활용해 손으로 만든 연필",
+      "price": "3000.00",
+      "is_green": true,
+      "is_best": true,
+      "images": [
+        {
+          "id": 17,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb1t3dx%2FbtrH74Hf0Lk%2FTrqkfYKQ2utZ6AbpmaQw70%2Fimg.png"
+        },
+        {
+          "id": 18,
+          "url": "https://images.unsplash.com/photo-1524254725712-0d14ba4bbc17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=684&q=80"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "재생지에 콩기름으로 인쇄한 일기장",
+      "price": "3500.00",
+      "is_green": true,
+      "is_best": true,
+      "images": [
+        {
+          "id": 7,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FzFEpX%2FbtrIdyfNocj%2FHdB8USFeDi3oZIjpz41mF0%2Fimg.png"
+        },
+        {
+          "id": 8,
+          "url": "https://images.unsplash.com/photo-1610072947120-8736bbfc56e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=860&q=80"
+        }
+      ]
+    }
+  ],
+  "green_products": [
+    {
+      "id": 11,
+      "name": "종이로 만든 박스테이프. 60초 후에 공개됩니다",
+      "price": "4500.00",
+      "is_green": true,
+      "is_best": true,
+      "images": [
+        {
+          "id": 21,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd8ByvM%2FbtrIftkzG0O%2FHDok0BHTOpSkYv1MdKjk70%2Fimg.png"
+        },
+        {
+          "id": 22,
+          "url": "https://images.unsplash.com/photo-1595740041673-6a525c7be994?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "종이로 만든 박스테이프. 두근두근",
+      "price": "4500.00",
+      "is_green": true,
+      "is_best": false,
+      "images": [
+        {
+          "id": 19,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FEWtOL%2FbtrIfucIcjZ%2FNrigCzn22jkbRekFcRc240%2Fimg.png"
+        },
+        {
+          "id": 20,
+          "url": "https://images.unsplash.com/photo-1581954804624-5d0cf4cc9dde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "커피찌꺼기를 재활용해 손으로 만든 연필",
+      "price": "3000.00",
+      "is_green": true,
+      "is_best": true,
+      "images": [
+        {
+          "id": 17,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb1t3dx%2FbtrH74Hf0Lk%2FTrqkfYKQ2utZ6AbpmaQw70%2Fimg.png"
+        },
+        {
+          "id": 18,
+          "url": "https://images.unsplash.com/photo-1524254725712-0d14ba4bbc17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=684&q=80"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "유해물질이 나오지 않는 지우개",
+      "price": "1500.00",
+      "is_green": true,
+      "is_best": false,
+      "images": [
+        {
+          "id": 15,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FSEEF8%2FbtrIejbrIJi%2FmuAbXx9rLIGFwI4MWv5fS1%2Fimg.png"
+        },
+        {
+          "id": 16,
+          "url": "https://images.unsplash.com/photo-1571664638276-b3e6b70499e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "화학표백을 하지 않은 재생지로 만든 메모잇",
+      "price": "2300.00",
+      "is_green": true,
+      "is_best": false,
+      "images": [
+        {
+          "id": 13,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbKsABi%2FbtrH9IRwUCI%2FHhYqxXCOKk2COAu3Y69yfK%2Fimg.png"
+        },
+        {
+          "id": 14,
+          "url": "https://images.unsplash.com/photo-1571577275698-54f36820ee9b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "재생지에 콩기름으로 인쇄한 일기장",
+      "price": "3500.00",
+      "is_green": true,
+      "is_best": true,
+      "images": [
+        {
+          "id": 7,
+          "url": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FzFEpX%2FbtrIdyfNocj%2FHdB8USFeDi3oZIjpz41mF0%2Fimg.png"
+        },
+        {
+          "id": 8,
+          "url": "https://images.unsplash.com/photo-1610072947120-8736bbfc56e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=860&q=80"
+        }
+      ]
+    }
+  ]
+}

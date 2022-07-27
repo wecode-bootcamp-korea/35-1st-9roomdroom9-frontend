@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "src": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbWidty%2FbtrIjOCAY8m%2FA3rcuqliKF7CHhRGLBHB50%2Fimg.png",
+    "text": "첫번째 슬라이드 버튼",
+    "alt": "첫번째이미지"
+  },
+  {
+    "id": 2,
+    "src": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxBGKB%2FbtrIhj4JlQ8%2Fa6UnYkJlxH3ClODaToFYqk%2Fimg.png",
+    "text": "두번째 슬라이드 버튼",
+    "alt": "두번째이미지"
+  },
+  {
+    "id": 3,
+    "src": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FccPdFz%2FbtrIdXBjdcN%2FXEkAv0kKSmbukMeTrMY0KK%2Fimg.png",
+    "text": "세번째 슬라이드 버튼",
+    "alt": "세번째이미지"
+  }
+]
