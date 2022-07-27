@@ -10,21 +10,15 @@ const Cart = () => {
   const priceTotal = sumPrice + deliveryFee;
 
   useEffect(() => {
-    //fetch('http://10.58.2.219:8000/carts', {
-    fetch('http://localhost:3000/data/cartList.json', {
-      method: 'GET',
+    fetch('http://10.58.0.83:8000/carts', {
       headers: {
-        // Authorization: localStorage.getItem('accessToken'),
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NjZ9.VwxLS11cVrMAGH800kHBKnJkk_h0pJQz8smsCYCl2-I',
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
       .then(data => {
-        //setCartList(data.result);
-        //setCheckedLists(data.result);
-        setCartList(data);
-        setCheckedLists(data);
+        setCartList(data.result);
+        setCheckedLists(data.result);
       });
   }, []);
 
@@ -100,12 +94,10 @@ const Cart = () => {
       .map(e => e.join('='))
       .join('&');
 
-    fetch(`http://10.58.2.219:8000/carts?${deleteUrl}`, {
+    fetch(`http://10.58.0.83:8000/carts?${deleteUrl}`, {
       method: 'DELETE',
       headers: {
-        // Authorization: localStorage.getItem('accessToken'),
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NjZ9.VwxLS11cVrMAGH800kHBKnJkk_h0pJQz8smsCYCl2-I',
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(response => response.json())
@@ -127,12 +119,10 @@ const Cart = () => {
     const cartDelete = copyList.filter(a => a === item);
     const deleteItem = cartDelete[0].cart_id;
 
-    fetch(`http://10.58.2.219:8000/carts?cart_id=${deleteItem}`, {
+    fetch(`http://10.58.0.83:8000/carts?cart_id=${deleteItem}`, {
       method: 'DELETE',
       headers: {
-        // Authorization: localStorage.getItem('accessToken'),
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NjZ9.VwxLS11cVrMAGH800kHBKnJkk_h0pJQz8smsCYCl2-I',
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(response => response.json())
@@ -156,13 +146,12 @@ const Cart = () => {
         <span>장바구니</span>
       </div>
       <div className="cart-wrap">
-        {!cartList.length && (
+        {!cartList.length ? (
           <div className="empty-product">
             <p className="empty-text">앗!</p>
             <p className="empty-text-sub">장바구니가 텅~</p>
           </div>
-        )}
-        {!!cartList.length && (
+        ) : (
           <div className="cart-content">
             <div className="cart-top">
               <label>
@@ -187,7 +176,7 @@ const Cart = () => {
                 {cartList.map((item, i) => {
                   return (
                     <CartItem
-                      key={i}
+                      key={item.product_id}
                       cartItem={item}
                       checkedList={checkedList}
                       onIncrement={handleIncrement}
@@ -224,7 +213,7 @@ const Cart = () => {
                 </tr>
               </tbody>
             </table>
-            <button className={!!priceTotal ? 'order-ok' : 'order-fail'}>
+            <button className={priceTotal ? 'order-ok' : 'order-fail'}>
               {priceTotal.toLocaleString('en')}원 주문하기
             </button>
           </div>

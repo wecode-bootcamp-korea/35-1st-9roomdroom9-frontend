@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CartItem = ({
   cartItem,
@@ -9,6 +10,9 @@ const CartItem = ({
   onRemove,
   onInputChange,
 }) => {
+  const navigate = useNavigate();
+
+  const productid = cartItem.product_id;
   return (
     <li>
       <input
@@ -17,10 +21,22 @@ const CartItem = ({
         checked={checkedList.includes(cartItem) ? true : false}
       />
       <div className="product-img">
-        <img src={cartItem.product_image[0]} alt={cartItem.product} />
+        <img
+          onClick={() => {
+            navigate(`/Products/detail/${productid}`);
+          }}
+          src={cartItem.product_image[0]}
+          alt={cartItem.product}
+        />
       </div>
       <div className="product-name">
-        <p>{cartItem.product_name}</p>
+        <p
+          onClick={() => {
+            navigate(`/Products/detail/${productid}`);
+          }}
+        >
+          {cartItem.product_name}
+        </p>
       </div>
       <div className="product-quantity">
         <button onClick={() => onDecrement(cartItem)}>-</button>
