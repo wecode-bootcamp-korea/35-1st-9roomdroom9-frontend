@@ -1,0 +1,62 @@
+.item-detail-view-box-guide {
+  padding: 80px 0 0 0;
+
+  .blind {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  .item-detail-view-guide {
+    margin-top: 80px;
+    font-size: 20px;
+    color: #000;
+    line-height: 24px;
+    font-weight: 700;
+  }
+
+  .item-detail-view-guide:first-of-type {
+    margin-top: 0px;
+  }
+
+  .item-detail-view-guide-text {
+    margin-top: 24px;
+    font-size: 16px;
+    color: #777;
+    line-height: 24px;
+
+    .title {
+      color: #000;
+      line-height: 19px;
+    }
+
+    > p {
+      margin-top: 10px;
+    }
+  }
+
+  .item-detail-view-guide-text-refund {
+    margin-top: 24px;
+    font-size: 16px;
+    color: #777;
+    line-height: 24px;
+
+    > li {
+      margin-top: 20px;
+      line-height: 30px;
+    }
+  }
+
+  .item-detail-view-guide-text-as {
+    margin-top: 24px;
+    font-size: 16px;
+    color: #777;
+    line-height: 24px;
+
+    > li {
+      margin-top: 20px;
+    }
+  }
+}
