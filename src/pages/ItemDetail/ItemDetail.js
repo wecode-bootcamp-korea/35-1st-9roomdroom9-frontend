@@ -78,6 +78,12 @@ const ItemDetail = () => {
 
   const priceMin = 1;
 
+  const MAPPING_OBJ = {
+    1: <First data={itemData} />,
+    2: <Second />,
+    3: <Third />,
+  };
+
   return !isData ? (
     <div>로딩중입니다....</div>
   ) : (
@@ -155,10 +161,10 @@ const ItemDetail = () => {
                 return (
                   <li
                     key={category + idx}
-                    className={category}
+                    className={category.className}
                     onClick={() => clickHandler(idx + 1)}
                   >
-                    {category}
+                    {category.category}
                   </li>
                 );
               })}
@@ -173,10 +179,20 @@ const ItemDetail = () => {
 
 export default ItemDetail;
 
-const MAPPING_OBJ = {
-  1: <First />,
-  2: <Second />,
-  3: <Third />,
-};
-
-const CATEGORY_ARR = ['상품정보', '기본정보', '상품후기'];
+const CATEGORY_ARR = [
+  {
+    id: 1,
+    category: '상품정보',
+    className: 'productInfo',
+  },
+  {
+    id: 2,
+    category: '기본정보',
+    className: 'productInfoBasic',
+  },
+  {
+    id: 3,
+    category: '상품후기',
+    className: 'productReview',
+  },
+];
