@@ -65,6 +65,8 @@
       img {
         display: block;
         max-height: 500px;
+        width: 500px;
+        height: 500px;
       }
     }
 
@@ -206,7 +208,7 @@
           color: #fff;
           flex: 0 0 80px;
           border: none;
-          background-color: #2ac1bc;
+          background-color: #000;
           border-radius: 6px;
           display: block;
           margin-bottom: 0;
@@ -215,9 +217,9 @@
           transition: all 0.6s ease;
           cursor: pointer;
           &:hover {
-            color: #2ac1bc;
+            color: #000;
             background-color: #fff;
-            border: 1px solid #2ac1bc;
+            border: 1px solid #000;
           }
         }
 
@@ -228,7 +230,7 @@
           font-size: 16px;
           line-height: 19px;
           color: #fff;
-          background-color: #2ac1bc;
+          background-color: #000;
           border-radius: 6px;
           margin-left: 10px;
           margin-bottom: 0;
@@ -238,9 +240,9 @@
           cursor: pointer;
 
           &:hover {
-            color: #2ac1bc;
+            color: #000;
             background-color: #fff;
-            border: 1px solid #2ac1bc;
+            border: 1px solid #000;
           }
         }
       }
@@ -276,6 +278,12 @@
         font-size: 16px;
         line-height: 19px;
         font-weight: 500;
+        cursor: pointer;
+        &:hover {
+          background-color: #000;
+          color: #ddd;
+          font-size: 800;
+        }
       }
     }
   }

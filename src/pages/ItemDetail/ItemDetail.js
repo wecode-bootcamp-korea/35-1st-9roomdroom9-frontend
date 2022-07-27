@@ -14,7 +14,7 @@ const ItemDetail = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://10.58.5.151:8000/products/detail/${params.id}`)
+    fetch(`http://10.58.0.83:8000/products/detail/${params.id}`)
       .then(res => res.json())
       .then(data => {
         setItemInfo(data.result);
@@ -22,21 +22,20 @@ const ItemDetail = () => {
   }, [params.id]);
 
   const isData = itemData.length !== 0;
-  // console.log(itemData);
+
   const { name, price, images, alt, options, is_best, is_green } = itemData;
 
   const goToCart = () => {
     const token = localStorage.getItem('token');
+    const product_option_id = itemData.options[0].product_option_id;
 
-    const product_option_id =
-      itemData.options[0].product_option_information[0].product_option_id;
-
-    if (token) {
+    if (!token) {
       alert('로그인이 필요해요!');
       navigate('/Login');
       return;
     }
-    fetch('http://10.58.1.167:8000/carts', {
+
+    fetch('http://10.58.6.9:8000/carts', {
       method: 'POST',
       headers: { Authorization: token },
       body: JSON.stringify({
@@ -70,7 +69,7 @@ const ItemDetail = () => {
   };
 
   const decreaseQuantity = () => {
-    quantity > 0 && setQuantity(quantity - 1);
+    quantity > 1 && setQuantity(quantity - 1);
   };
 
   const clickHandler = id => {
@@ -111,7 +110,7 @@ const ItemDetail = () => {
               <div className="item-buy-content">
                 <div className="item-buy-list">
                   <div className="item-buy-list-box">
-                    <h4>{options[0].name}</h4>
+                    <h4>제작자 : {options[0].name}</h4>
                     <div className="item-buy-options">
                       <div className="quantity">
                         <input type="number" value={quantity} readOnly />

@@ -7,11 +7,11 @@ const First = () => {
       <h3 className="blind">상품정보</h3>
       <div className="item-detail-info-img">
         <img
-          src="images/itemDetail/itemDetail0.jpeg"
+          src="/images/itemDetail/itemDetail01.png"
           alt="상세설명상품 첫번째"
         />
         <img
-          src="images/itemDetail/itemDetail1.jpeg"
+          src="/images/itemDetail/itemDetail02.png"
           alt="상품설명상품 두번째"
         />
       </div>
