@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import ProductsList from './components/ProductsList';
 import Slides from '../Slides/Slides';
+import { BASE_URL } from '../../config';
 import './Main.scss';
 
 const Main = () => {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    fetch('/data/main.json')
-      .then(res => res.json())
-      .then(result => setProducts(result));
-  }, []);
-
   // useEffect(() => {
-  //   fetch('http://10.58.0.83:8000/products/main')
+  //   fetch('/data/main.json')
   //     .then(res => res.json())
   //     .then(result => setProducts(result));
   // }, []);
+
+  useEffect(() => {
+    fetch(`${BASE_URL}/products/main`)
+      .then(res => res.json())
+      .then(result => setProducts(result));
+  }, []);
 
   const { best_products, new_products, green_products } = products;
 

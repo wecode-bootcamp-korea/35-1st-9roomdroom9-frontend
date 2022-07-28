@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../config';
 import './JoinForm.scss';
 
 const JoinForm = () => {
@@ -7,7 +8,7 @@ const JoinForm = () => {
 
   const postUserData = e => {
     e.preventDefault();
-    fetch('http://10.58.0.70:8000/users/signup', {
+    fetch(`${BASE_URL}/users/signup`, {
       method: 'POST',
       body: JSON.stringify({
         name: userName,

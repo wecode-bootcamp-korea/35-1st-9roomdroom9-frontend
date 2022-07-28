@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { BASE_URL } from '../../config';
 import './ItemList.scss';
 
 const ItemList = () => {
@@ -11,9 +12,7 @@ const ItemList = () => {
 
   const getData = useCallback(() => {
     fetch(
-      `http://10.58.3.87:8000/products/${params.id}?offset=${
-        (pageNum - 1) * 10
-      }&limit=10`
+      `${BASE_URL}/products/${params.id}?offset=${(pageNum - 1) * 10}&limit=10`
     )
       .then(res => res.json())
       .then(data => {
@@ -33,7 +32,7 @@ const ItemList = () => {
   }, [pageNum, getData]);
 
   useEffect(() => {
-    fetch(`http://10.58.3.87:8000/products/${params.id}?offset=0&limit=10`)
+    fetch(`${BASE_URL}/products/${params.id}?offset=0&limit=10`)
       .then(res => res.json())
       .then(data => {
         setList(data);
@@ -59,7 +58,7 @@ const ItemList = () => {
   };
 
   const sortLow = () => {
-    fetch(`http://10.58.3.87:8000/products/${params.id}?sorting=LOW_PRICE`)
+    fetch(`${BASE_URL}/products/${params.id}?sorting=LOW_PRICE`)
       .then(res => res.json())
       .then(data => {
         setList(data);
@@ -67,7 +66,7 @@ const ItemList = () => {
   };
 
   const sortNew = () => {
-    fetch(`http://10.58.3.87:8000/products/${params.id}?sorting=NEW`)
+    fetch(`${BASE_URL}/products/${params.id}?sorting=NEW`)
       .then(res => res.json())
       .then(data => {
         setList(data);
