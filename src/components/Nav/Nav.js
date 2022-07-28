@@ -28,6 +28,25 @@ const Nav = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
   };
 
+  const enterCart = () => {
+    if (token) {
+      navigate('/Cart');
+    } else {
+      alert('로그인이 필요합니다');
+      navigate('/Login');
+    }
+  };
+
+  const login = () => {
+    navigate('/Login');
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    navigate('/');
+  };
+
   const CategoryHandle = id => {
     navigate(`/products/${id}`);
   };
@@ -76,27 +95,19 @@ const Nav = () => {
             </nav>
           </div>
           <ul className="nav-icon">
-            <li className="nav-username">
-              <span>{user}</span>
-            </li>
+            {user && (
+              <li className="nav-username">
+                <span>{user}님</span>
+              </li>
+            )}
             <li>
-              <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-                onClick={() => {
-                  navigate('/');
-                }}
-              />
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
             </li>
             <li>
               <FontAwesomeIcon
                 icon={faCartShopping}
                 onClick={() => {
-                  if (token) {
-                    navigate('/Cart');
-                  } else {
-                    alert('로그인이 필요합니다');
-                    navigate('/Login');
-                  }
+                  enterCart();
                 }}
               />
             </li>
@@ -105,7 +116,7 @@ const Nav = () => {
                 <span
                   className="loginBtn"
                   onClick={() => {
-                    navigate('/Login');
+                    login();
                   }}
                 >
                   로그인
@@ -114,9 +125,7 @@ const Nav = () => {
                 <span
                   className="loginBtn"
                   onClick={() => {
-                    localStorage.removeItem('token');
-                    localStorage.removeItem('name');
-                    navigate('/');
+                    logout();
                   }}
                 >
                   로그아웃
@@ -124,12 +133,7 @@ const Nav = () => {
               )}
             </li>
             <li>
-              <FontAwesomeIcon
-                icon={faBars}
-                onClick={() => {
-                  navigate('/');
-                }}
-              />
+              <FontAwesomeIcon icon={faBars} />
             </li>
           </ul>
         </div>
