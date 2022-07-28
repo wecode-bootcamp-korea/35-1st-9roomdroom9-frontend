@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './Nav.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -7,28 +7,48 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const categoryList = [
-  { text: '전체', navi: '/ItemList' },
-  { text: '문구', navi: '/ItemList' },
-  { text: '책/매거진F', navi: '/ItemList' },
-  { text: '구방그린', navi: '/ItemList' },
-  { text: '구방친구들', navi: '/ItemList' },
-  { text: '콜라보레이션', navi: '/ItemList' },
-  { text: '명예의 전당', navi: '/ItemList' },
-];
-const iconList = [
-  { icon: faMagnifyingGlass, navi: '', text: '' },
-  { icon: faCartShopping, navi: '/Cart', text: '' },
-  { icon: '', navi: '/Login', text: '로그인' },
-  { icon: faBars, navi: '', text: '' },
+  { id: 1000, text: '전체' },
+  { id: 1, text: '문구' },
+  { id: 2, text: '책/매거진F' },
+  { id: 3, text: '구방그린' },
+  { id: 4, text: '구방친구들' },
+  { id: 5, text: '콜라보레이션' },
+  { id: 6, text: '명예의 전당' },
 ];
 
 const Nav = () => {
   const navigate = useNavigate();
+  const params = useParams();
 
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [token, setToken] = useState('');
+  const [user, setUser] = useState('');
 
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
+
+  const enterCart = () => {
+    if (token) {
+      navigate('/Cart');
+    } else {
+      alert('로그인이 필요합니다');
+      navigate('/Login');
+    }
+  };
+
+  const login = () => {
+    navigate('/Login');
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    navigate('/');
+  };
+
+  const CategoryHandle = id => {
+    navigate(`/products/${id}`);
   };
 
   useEffect(() => {
@@ -37,6 +57,11 @@ const Nav = () => {
       document.removeEventListener('scroll', updateScroll);
     };
   }, []);
+
+  useEffect(() => {
+    setToken(localStorage.getItem('token'));
+    setUser(localStorage.getItem('name'));
+  }, [params]);
 
   return (
     <div className="nav">
@@ -58,9 +83,9 @@ const Nav = () => {
                   return (
                     <li
                       onClick={() => {
-                        navigate(categoryList.navi);
+                        CategoryHandle(categoryList.id);
                       }}
-                      key={i}
+                      key={categoryList.id}
                     >
                       {categoryList.text}
                     </li>
@@ -70,28 +95,46 @@ const Nav = () => {
             </nav>
           </div>
           <ul className="nav-icon">
-            {iconList.map((iconList, i) => {
-              return (
-                <li key={i}>
-                  {iconList.icon !== '' ? (
-                    <FontAwesomeIcon
-                      icon={iconList.icon}
-                      onClick={() => {
-                        navigate(iconList.navi);
-                      }}
-                    />
-                  ) : (
-                    <span
-                      onClick={() => {
-                        navigate(iconList.navi);
-                      }}
-                    >
-                      {iconList.text}
-                    </span>
-                  )}
-                </li>
-              );
-            })}
+            {user && (
+              <li className="nav-username">
+                <span>{user}님</span>
+              </li>
+            )}
+            <li>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </li>
+            <li>
+              <FontAwesomeIcon
+                icon={faCartShopping}
+                onClick={() => {
+                  enterCart();
+                }}
+              />
+            </li>
+            <li>
+              {!token ? (
+                <span
+                  className="loginBtn"
+                  onClick={() => {
+                    login();
+                  }}
+                >
+                  로그인
+                </span>
+              ) : (
+                <span
+                  className="loginBtn"
+                  onClick={() => {
+                    logout();
+                  }}
+                >
+                  로그아웃
+                </span>
+              )}
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faBars} />
+            </li>
           </ul>
         </div>
       </header>

@@ -50,10 +50,20 @@
 
     .nav-icon {
       display: flex;
-      width: 200px;
+      width: 300px;
       margin-left: auto;
 
-      span {
+      .nav-username {
+        span {
+          padding: 5px;
+          border: none;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: bold;
+        }
+      }
+
+      .loginBtn {
         padding: 5px;
         border: 2px solid black;
         border-radius: 20px;
@@ -70,8 +80,8 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1300px) {
   .nav-bar {
-    width: 1200px;
+    width: 1300px;
   }
 }
