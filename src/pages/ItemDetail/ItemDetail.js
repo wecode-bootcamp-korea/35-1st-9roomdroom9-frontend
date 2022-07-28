@@ -4,6 +4,7 @@ import './ItemDetail.scss';
 import First from './components/First';
 import Second from './components/Second';
 import Third from './components/Third';
+import { BASE_URL } from '../../config';
 
 const ItemDetail = () => {
   const [quantity, setQuantity] = useState(1);
@@ -14,7 +15,7 @@ const ItemDetail = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://10.58.0.83:8000/products/detail/${params.id}`)
+    fetch(`${BASE_URL}/products/detail/${params.id}`)
       .then(res => res.json())
       .then(data => {
         setItemInfo(data.result);
@@ -35,7 +36,7 @@ const ItemDetail = () => {
       return;
     }
 
-    fetch('http://10.58.6.9:8000/carts', {
+    fetch(`${BASE_URL}/carts`, {
       method: 'POST',
       headers: { Authorization: token },
       body: JSON.stringify({

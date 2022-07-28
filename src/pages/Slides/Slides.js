@@ -5,7 +5,7 @@ import './Slides.scss';
 const Slides = () => {
   const [slideList, setSlideList] = useState([]);
   const [leftValue, setLeftValue] = useState(0);
-  const copy = leftValue + 'vw';
+  const leftSlide = leftValue + 'vw';
 
   useEffect(() => {
     fetch('/data/slide.json')
@@ -36,7 +36,7 @@ const Slides = () => {
 
   return (
     <div className="slides">
-      <MainSlide slideList={slideList} copy={copy} />
+      <MainSlide slideList={slideList} leftSlide={leftSlide} />
       <div className="btn">
         <div className="prev" onClick={prevSlide} />
         <div className="next" onClick={nextSlide} />
