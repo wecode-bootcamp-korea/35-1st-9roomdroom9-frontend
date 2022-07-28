@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './ItemList.scss';
 
@@ -9,18 +9,37 @@ const ItemList = () => {
   const navigate = useNavigate();
   const { category_data, products_data } = list;
 
+  const getData = useCallback(() => {
+    fetch(
+      `http://10.58.3.87:8000/products/${params.id}?offset=${
+        (pageNum - 1) * 10
+      }&limit=10`
+    )
+      .then(res => res.json())
+      .then(data => {
+        setList(current => {
+          let newCondition = { ...current };
+          newCondition.category_data = data.category_data;
+          newCondition.products_data = newCondition.products_data
+            ? newCondition.products_data.concat(data.products_data)
+            : data.products_data;
+          return newCondition;
+        });
+      });
+  }, [pageNum, params.id]);
+
   useEffect(() => {
-    fetch(`http://10.58.0.83:8000/products/${params.id}`)
+    pageNum !== 1 && getData();
+  }, [pageNum, getData]);
+
+  useEffect(() => {
+    fetch(`http://10.58.3.87:8000/products/${params.id}?offset=0&limit=10`)
       .then(res => res.json())
       .then(data => {
         setList(data);
       });
     setPageNum(1);
   }, [params.id]);
-
-  useEffect(() => {
-    pageNum !== 1 && getData();
-  }, [pageNum]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -39,26 +58,23 @@ const ItemList = () => {
     }
   };
 
-  const isData = list.length !== 0;
-
-  const getData = () => {
-    fetch(
-      `http://10.58.0.83:8000/products/${params.id}?offset=${
-        (pageNum - 1) * 12
-      }&limit=12`
-    )
+  const sortLow = () => {
+    fetch(`http://10.58.3.87:8000/products/${params.id}?sorting=LOW_PRICE`)
       .then(res => res.json())
       .then(data => {
-        setList(current => {
-          let newCondition = { ...current };
-          newCondition.category_data = data.category_data;
-          newCondition.products_data = newCondition.products_data
-            ? newCondition.products_data.concat(data.products_data)
-            : data.products_data;
-          return newCondition;
-        });
+        setList(data);
       });
   };
+
+  const sortNew = () => {
+    fetch(`http://10.58.3.87:8000/products/${params.id}?sorting=NEW`)
+      .then(res => res.json())
+      .then(data => {
+        setList(data);
+      });
+  };
+
+  const isData = list.length !== 0;
 
   const goToDetail = id => {
     navigate(`/products/detail/${id}`);
@@ -67,7 +83,7 @@ const ItemList = () => {
   const priceMin = 1;
 
   return !isData ? (
-    <div>로딩중입니다....</div>
+    <div className="loading">로딩중입니다....</div>
   ) : (
     <div className="item-list">
       <div className="item-list-header">
@@ -82,13 +98,7 @@ const ItemList = () => {
           <button
             className="button-recommend"
             onClick={() => {
-              fetch(
-                `http://10.58.0.83:8000/products/${params.id}?sorting=LOW_PRICE`
-              )
-                .then(res => res.json())
-                .then(data => {
-                  setList(data);
-                });
+              sortLow();
             }}
           >
             낮은 가격순
@@ -96,11 +106,7 @@ const ItemList = () => {
           <button
             className="button-least"
             onClick={() => {
-              fetch(`http://10.58.0.83:8000/products/${params.id}?sorting=NEW`)
-                .then(res => res.json())
-                .then(data => {
-                  setList(data);
-                });
+              sortNew();
             }}
           >
             최신순
