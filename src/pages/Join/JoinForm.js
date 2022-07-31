@@ -83,6 +83,7 @@ const JoinForm = () => {
                     type={input.type}
                     placeholder={input.placeholder}
                     autoFocus={input.autoFocus}
+                    autocomplete="off"
                   />
                   <p className="text-valid">{input.valid}</p>
                 </div>
@@ -96,6 +97,7 @@ const JoinForm = () => {
                 name="userBirthday"
                 placeholder="생일정보"
                 onChange={handleInput}
+                autocomplete="off"
               />
               <p className="text-valid">
                 &#183; 생일을 정확하게 입력해주세요. (예: 2000-12-31)

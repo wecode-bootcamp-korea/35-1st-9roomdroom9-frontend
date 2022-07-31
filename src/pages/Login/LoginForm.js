@@ -66,6 +66,7 @@ const LoginForm = () => {
                     type={input.type}
                     placeholder={input.placeholder}
                     autoFocus={input.autoFocus}
+                    autocomplete="off"
                   />
                   <p className="text-valid">{input.valid}</p>
                 </div>

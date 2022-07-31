@@ -48,7 +48,7 @@ const Main = () => {
           <img src="/images/mainPage/banner-bg02.png" alt="배너2" />
         </div>
         <div className="green">
-          <h2>🌱 지금은 할인중 🌱</h2>
+          <h2>🌱 친환경 제품이에요 🌱</h2>
           <div className="green-wrap">
             <ProductsList products={green_products} />
           </div>
