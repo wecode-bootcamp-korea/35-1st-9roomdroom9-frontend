@@ -12,8 +12,7 @@ const CartItem = ({
 }) => {
   const navigate = useNavigate();
   const productid = cartItem.product_id;
-  console.log(productid);
-  console.log(cartItem);
+
   return (
     <li>
       <input
