@@ -11,8 +11,8 @@ const CartItem = ({
   onInputChange,
 }) => {
   const navigate = useNavigate();
-
   const productid = cartItem.product_id;
+
   return (
     <li>
       <input
