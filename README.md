@@ -1,6 +1,4 @@
-![](여기에 이미지)
-
-#
+<img width="789" src ="https://user-images.githubusercontent.com/83544570/182020694-76570a8d-3341-4bc4-ba46-b2881df88e50.png"/>
 
 ### 🐥 앞뒤가 똑같은 구방문방구!
 
@@ -21,12 +19,9 @@
 Front-End : 엄성훈님(PM), 김광희님, 정예빈님<br>
 Back-end : 이정훈님, 음정민님
 
-#
-
 ### 🐥 Front-End 사용한 기술 스택!
 
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
-<img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white"/>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white"/>
 <img src ="https://img.shields.io/badge/SASS-cc6699?style=flat-square&logo=Sass&logoColor=white"/>
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/>
 <img src="https://img.shields.io/badge/react-61DAFB?style=flat-square&logo=react&logoColor=black">
@@ -44,41 +39,98 @@ Back-end : 이정훈님, 음정민님
 - 상품 디테일 페이지
 - 장바구니 페이지
 
-#
-
 ### 🐥 재밌게 만들었어요!
 
 > [유튜브 최종 데모 영상](추가 예정)
 
-> **- 🐥 Navigation Bar 🐥 -**
-
-![]()
-
----
-
-> **- 🐥 메인페이지 🐥 -**
-
-![]()
-
----
-
-> **- 🐥 상품리스트 페이지 🐥 -**
-
-![]()
-
----
-
-> **- 🐥 상품상세 페이지 🐥 -**
-
-![]()
-
----
-
-> **- 🐥 장바구니 페이지 🐥 -**
-
-![]()
-
-#
+<table>
+  <thead>
+    <tr>
+      <th>
+        메인상단
+      </th>
+      <th>
+        메인하단
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+        <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182020741-6f4576ee-148d-4fdb-b730-887ce6b865d7.png">
+      </td>
+      <td align="center">
+          <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182020750-e4aa16af-2898-4fdd-b180-0273db42c56c.png">
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th>
+        회원가입
+      </th>
+      <th>
+        로그인
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+        <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182020941-d1b3dbc5-de36-41b1-819b-f6967cc620d3.png">
+      </td>
+      <td align="center">
+          <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182020960-0ef6a9f6-bb8b-4ca9-8da6-e3a042c1e93e.png">
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th>
+        상세페이지
+      </th>
+      <th>
+        상세페이지 별 탭
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+        <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182020992-ea26c2a4-c458-4ad0-ad25-95b97ff085e6.png">
+      </td>
+      <td align="center">
+          <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182020994-cdfc557d-b91e-478e-9c3c-1cb550f55480.png">
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th>
+        장바구니 페이지
+      </th>
+      <th>
+        장바구니 텅
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+        <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182021057-89a57cac-9878-4e01-b570-55aad72efbee.jpg">
+      </td>
+      <td align="center">
+        <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182021059-191b8339-4381-4a0a-af04-d7ecc5aa42fd.png">
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### 🐥 우리 어떻게 일 한 한거야?
 
@@ -91,26 +143,6 @@ Back-end : 이정훈님, 음정민님
 <img width="1339" alt="스크린샷 2022-07-31 오전 10 53 51" src="https://user-images.githubusercontent.com/105622173/182006289-fd28d445-bdd3-42bf-9e85-a49fcfe6db61.png">
 
 <img width="1359" alt="스크린샷 2022-07-31 오전 11 11 24" src="https://user-images.githubusercontent.com/105622173/182006668-76b57624-26d5-46ec-b91d-a2545d22c5d3.png">
-
----
-
-### 🐥 구현페이지
-
-#### 메인화면
-
-- 메인 슬라이드 이미지와 Nav,Footer로 디자인을 완성했습니다.
-- component를 사용하여 코드의 가독성과 재활용성을 높였다.
-- map함수로 메인페이지의 반복적이고 동일한 레이아웃을 데이터를 일일이 적지않도록 하였다.
-- useState로 상품 데이터를 props로 불러와 각각 다른 데이터를 가져올 수 있도록 작업하였다.
-- fetch를 사용하여 백엔드 서버에서 데이터를 받아와 Best,New, Green(친환경)상품이 나올 수 있도록 구현하였다.
-
-#### 상품 리스트 화면
-
-#### 로그인 화면
-
-#### 회원가입 화면
-
-#
 
 ### Reference
 
