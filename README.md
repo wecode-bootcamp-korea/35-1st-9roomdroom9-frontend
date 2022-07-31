@@ -1,5 +1,9 @@
 <img width="789" src ="https://user-images.githubusercontent.com/83544570/182020694-76570a8d-3341-4bc4-ba46-b2881df88e50.png"/>
 
+### 🐥 프론트, 백엔드 깃허브
+> [팀 프로젝트 프론트엔드 GitHub](https://github.com/wecode-bootcamp-korea/35-1st-9roomdroom9-frontend)<br/>
+> [팀 프로젝트 백엔드 GitHub](https://github.com/wecode-bootcamp-korea/35-1st-9roomdroom9-backend)
+
 ### 🐥 앞뒤가 똑같은 구방문방구!
 
 - 앞뒤가 똑같은 구방문방구를 팀명으로 팀원들의 물건을 재미있게 판매하는 서비스 홈페이지 구현했어요!
@@ -15,7 +19,6 @@
 #
 
 ### 🐥 한분한분이 소중한 우리 팀 일원!
-
 Front-End : 👑엄성훈님(PM), ❤️김광희님, 🐥정예빈님<br>
 Back-end : 이정훈님, 음정민님
 
@@ -125,11 +128,11 @@ Back-end : 이정훈님, 음정민님
   </thead>
   <tbody>
     <tr>
-      <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182021057-89a57cac-9878-4e01-b570-55aad72efbee.jpg">
+     <td align="center">
+        <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182021059-191b8339-4381-4a0a-af04-d7ecc5aa42fd.png">
       </td>
       <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182021059-191b8339-4381-4a0a-af04-d7ecc5aa42fd.png">
+        <img width="789" alt="image" src="https://user-images.githubusercontent.com/83544570/182021057-89a57cac-9878-4e01-b570-55aad72efbee.jpg">
       </td>
     </tr>
   </tbody>
