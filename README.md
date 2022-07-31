@@ -34,7 +34,8 @@ Back-end : 이정훈님, 음정민님
 #
 
 ### 🐥 열심히 만들어본 페이지! 그래서 누가했는가!<br/>
-#### 👑엄성훈님(PM), ❤️김광희님, 🐥정예빈님<br>
+#### [👑엄성훈님(PM)](https://velog.io/@fortheher/%EB%B0%B0%EB%AF%BC%EB%AC%B8%EB%B0%A9%EA%B5%AC-%ED%81%B4%EB%A1%A0-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-REACT), [❤️김광희님](https://tail-star.tistory.com/), [🐥정예빈님](https://velog.io/@yebin214/1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0)<br>
+- (클릭 시 블로그로 이동!)
 - Navigation Bar ❤️
 - Footer ❤️
 - 회원가입 페이지 👑
