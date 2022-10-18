@@ -19,13 +19,14 @@ const Main = () => {
       .then(result => setProducts(result));
   }, []);
 
+  // console.log(products);
+
   const { best_products, new_products, green_products } = products;
 
   const isData = products.length !== 0;
+  if (!isData) return <div>로딩중입니다.</div>;
 
-  return !isData ? (
-    <div>로딩중입니다.</div>
-  ) : (
+  return (
     <div className="main">
       <Slides />
       <div className="menu-wrap">
