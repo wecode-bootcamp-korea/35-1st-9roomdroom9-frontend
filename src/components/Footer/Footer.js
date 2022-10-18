@@ -12,7 +12,7 @@ const Footer = () => {
 
   const infoList = [
     { text: '상호 : (주)구방문방구' },
-    { text: '대표 : 엄성훈' },
+    { text: '대표 : 예빈부기대장' },
     { text: '사업자등록번호 : 123-45-67890' },
     { text: '통신판매업신고번호 : 2022-서울' },
     { text: '사업자정보확인' },
@@ -35,11 +35,11 @@ const Footer = () => {
                 return <li key={i}>{text.text}</li>;
               })}
             </ul>
-            <p> @9roomd_store</p>
+            <p>&nbsp;@9roomd_store</p>
           </nav>
           <div className="footer-info">
             {infoList.map((text, i) => {
-              return <li key={i}>{text.text}</li>;
+              return <li key={i}>{text.text}&nbsp;</li>;
             })}
           </div>
           <p>© 9roomdroom9 Corp. All rights reserved</p>
