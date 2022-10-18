@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Nav.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -18,11 +18,12 @@ const categoryList = [
 
 const Nav = () => {
   const navigate = useNavigate();
-  const params = useParams();
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const [token, setToken] = useState('');
   const [user, setUser] = useState('');
+
+  const [category, setCategory] = useState('전체');
 
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
@@ -47,8 +48,9 @@ const Nav = () => {
     navigate('/');
   };
 
-  const CategoryHandle = id => {
+  const CategoryHandle = (id, category) => {
     navigate(`/products/${id}`);
+    setCategory(category);
   };
 
   useEffect(() => {
@@ -61,7 +63,7 @@ const Nav = () => {
   useEffect(() => {
     setToken(localStorage.getItem('token'));
     setUser(localStorage.getItem('name'));
-  }, [params]);
+  }, []);
 
   return (
     <div className="nav">
@@ -82,8 +84,9 @@ const Nav = () => {
                 {categoryList.map((categoryList, i) => {
                   return (
                     <li
+                      className={category === categoryList.text ? 'active' : ''}
                       onClick={() => {
-                        CategoryHandle(categoryList.id);
+                        CategoryHandle(categoryList.id, categoryList.text);
                       }}
                       key={categoryList.id}
                     >

@@ -39,7 +39,7 @@ const LoginForm = () => {
     userPw: '',
   });
 
-  console.log(inputValue);
+  // console.log(inputValue);
 
   const { userId, userPw } = inputValue;
 
