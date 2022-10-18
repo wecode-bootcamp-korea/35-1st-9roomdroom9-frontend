@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
 import './ItemDetail.scss';
 import First from './components/First';
 import Second from './components/Second';
@@ -86,7 +87,7 @@ const ItemDetail = () => {
   };
 
   return !isData ? (
-    <div>로딩중입니다....</div>
+    <Skeleton height="600px" className="item-detail" />
   ) : (
     <div className="item-detail">
       <div className="item-detail-view">

@@ -48,10 +48,10 @@
 
           &.active {
             font-weight: 600;
-            border-bottom: 2px solid #22b8cf;
-            color: #22b8cf;
+            border-bottom: 2px solid rgb(42, 193, 188);
+            color: rgb(42, 193, 188);
             &:hover {
-              color: #3bc9db;
+              color: rgb(42, 193, 188);
             }
           }
         }
