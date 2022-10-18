@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
 import { BASE_URL } from '../../config';
 import './ItemList.scss';
 
@@ -82,11 +83,45 @@ const ItemList = () => {
   const priceMin = 1;
 
   return !isData ? (
-    <div className="loading">로딩중입니다....</div>
+    <div className="item-list">
+      <div className="item-list-header">
+        <h2 className="item-list-title">
+          전체
+          <span>총 40 개 좀 안됨 ㅋ</span>
+        </h2>
+        <p className="item-list-message" width="200px">
+          여기에 다 있어요!
+        </p>
+      </div>
+      <div className="item-list-message-wrap">
+        <div className="item-list-recommend-text">
+          <button className="button-recommend">낮은 가격순</button>
+          <button className="button-least">최신순</button>
+        </div>
+      </div>
+      <div className="item-list-img-list">
+        {Array.from({ length: 8 }, v => (
+          <div className="item-list-img">
+            <div className="links-wrap">
+              <div className="links">
+                <Skeleton width="282px" height="282px" />
+              </div>
+            </div>
+            <div className="badge">
+              <Skeleton className="badge-best">BEST&nbsp;</Skeleton>
+            </div>
+            <div className="item-list-img-text">
+              <p className="img-title" />
+              <p className="img-price" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   ) : (
     <div className="item-list">
       <div className="item-list-header">
-        <h2>
+        <h2 className="item-list-title">
           {category_data.name}
           <span>총 {category_data.total_products} 개 좀 안됨 ㅋ</span>
         </h2>
