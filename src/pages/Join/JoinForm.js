@@ -60,6 +60,14 @@ const JoinForm = () => {
   const REGEX_BIRTHDAY =
     /^(19\d{2}|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
 
+  const REGEX_ARRAY = [
+    REGEX_EMAIL.test(userId),
+    REGEX_PASSWORD.test(userPw),
+    pwCheck.length === 0 ? false : pwCheck === userPw,
+    REGEX_NAME.test(userName),
+    REGEX_PHONE_NUMBER.test(userPhoneNumber),
+  ];
+
   const isValid =
     REGEX_PASSWORD.test(userPw) &&
     pwCheck === userPw &&
@@ -73,7 +81,7 @@ const JoinForm = () => {
       <h2 className="join-title">회원가입</h2>
       <div className="join-contnet">
         <ul className="join-form-list">
-          {JOIN_INPUT_DATA.map(input => {
+          {JOIN_INPUT_DATA.map((input, i) => {
             return (
               <li key={input.id}>
                 <div className="input-box-error">
@@ -85,8 +93,12 @@ const JoinForm = () => {
                     autoFocus={input.autoFocus}
                     autocomplete="off"
                   />
-                  <p className="text-valid">{input.valid}</p>
                 </div>
+                {REGEX_ARRAY[i] ? (
+                  ''
+                ) : (
+                  <p className="text-valid">{input.valid}</p>
+                )}
               </li>
             );
           })}
