@@ -8,11 +8,13 @@
     height: 0;
     overflow: hidden;
     z-index: -1;
+    word-break: keep-all;
   }
 
   h1 {
-    font-size: 100px;
+    font-size: 60px;
     color: rgb(30, 30, 30);
+    word-break: keep-all;
   }
 
   .item-detail-info {
@@ -26,6 +28,7 @@
       font-weight: 700;
       line-height: 24px;
       text-align: left;
+      word-break: keep-all;
     }
 
     table {
