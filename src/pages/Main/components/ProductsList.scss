@@ -20,6 +20,11 @@
         border: 2px solid rgba(1, 1, 1, 0.1);
         width: 260px;
         height: 260px;
+        transition: all 0.5s;
+
+        &:hover {
+          transform: scale(1.05);
+        }
       }
     }
 
