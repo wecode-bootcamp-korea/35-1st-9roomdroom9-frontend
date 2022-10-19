@@ -77,7 +77,7 @@ const Nav = () => {
       <header
         className={scrollPosition < 1 ? 'original-header' : 'change-header'}
       >
-        <div className={'nav-bar' + `${scrollPosition < 1 ? '' : ' active'}`}>
+        <div className={`${scrollPosition < 1 ? 'nav-bar' : 'nav-bar active'}`}>
           <h1
             onClick={() => {
               navigate('/');
