@@ -6,6 +6,8 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
+import Search from '../Search/Search';
+
 const categoryList = [
   { id: 1000, text: '전체' },
   { id: 1, text: '문구' },
@@ -24,6 +26,11 @@ const Nav = () => {
   const [user, setUser] = useState('');
 
   const [category, setCategory] = useState('전체');
+  const [isSearchOn, setisSearchOn] = useState(false);
+
+  function handleSearchBarOn() {
+    setisSearchOn(!isSearchOn);
+  }
 
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
@@ -70,33 +77,31 @@ const Nav = () => {
       <header
         className={scrollPosition < 1 ? 'original-header' : 'change-header'}
       >
-        <div className="nav-bar">
-          <div>
-            <h1
-              onClick={() => {
-                navigate('/');
-              }}
-            >
-              구방문방구
-            </h1>
-            <nav className="category">
-              <ul className="nav-ul">
-                {categoryList.map((categoryList, i) => {
-                  return (
-                    <li
-                      className={category === categoryList.text ? 'active' : ''}
-                      onClick={() => {
-                        CategoryHandle(categoryList.id, categoryList.text);
-                      }}
-                      key={categoryList.id}
-                    >
-                      {categoryList.text}
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
-          </div>
+        <div className={'nav-bar' + `${scrollPosition < 1 ? '' : ' active'}`}>
+          <h1
+            onClick={() => {
+              navigate('/');
+            }}
+          >
+            구방문방구
+          </h1>
+          <nav className="category">
+            <ul className="nav-ul">
+              {categoryList.map((categoryList, i) => {
+                return (
+                  <li
+                    className={category === categoryList.text ? 'active' : ''}
+                    onClick={() => {
+                      CategoryHandle(categoryList.id, categoryList.text);
+                    }}
+                    key={categoryList.id}
+                  >
+                    {categoryList.text}
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
           <ul className="nav-icon">
             {user && (
               <li className="nav-username">
@@ -104,7 +109,10 @@ const Nav = () => {
               </li>
             )}
             <li>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                onClick={handleSearchBarOn}
+              />
             </li>
             <li>
               <FontAwesomeIcon
@@ -141,6 +149,7 @@ const Nav = () => {
           </ul>
         </div>
       </header>
+      <Search isSearchOn={isSearchOn} handleSearchBarOn={handleSearchBarOn} />
     </div>
   );
 };

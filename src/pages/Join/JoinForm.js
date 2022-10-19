@@ -147,7 +147,7 @@ const JOIN_INPUT_DATA = [
     name: 'userPw',
     type: 'password',
     placeholder: '비밀번호',
-    valid: '새 비밀번호를 꼭 입력해주세요.',
+    valid: '새 비밀번호를 꼭 입력해주세요. (*숫자, 특수문자 포함)',
     autoFocus: false,
   },
   {

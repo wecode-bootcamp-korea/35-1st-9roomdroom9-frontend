@@ -25,16 +25,8 @@ const ProductsList = ({ products }) => {
               <img src={porData.images[0].url} alt="이미지" />
             </div>
             <div className="badge">
-              {porData.is_best === true ? (
-                <span className="badge-best">BEST</span>
-              ) : (
-                <span className="badge-green" />
-              )}
-              {porData.is_green === true ? (
-                <span className="badge-green">GREEN</span>
-              ) : (
-                <span className="badge-best" />
-              )}
+              {porData.is_best && <span className="badge-best">BEST</span>}
+              {porData.is_green && <span className="badge-green">GREEN</span>}
             </div>
             <div className="pro-list-name-box">{porData.name}</div>
             <div className="pro-list-price-box">

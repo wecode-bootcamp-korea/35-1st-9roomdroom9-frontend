@@ -32,11 +32,33 @@ const Main = () => {
           <h2>❤️ 요즘 잘 나가요 ❤️</h2>
           <div className="best-wrap">
             <ul className="pro-list">
-              {Array.from({ length: 8 }, v => (
-                <li className="pro-list-wrap">
+              {Array.from({ length: 8 }, (v, i) => (
+                <li key={i} className="pro-list-wrap">
                   <div className="pro-list-img-box">
                     <Skeleton width="270px" height="270px" />
                   </div>
+                  <div className="badge">
+                    <Skeleton
+                      className="badge-best"
+                      width="80px"
+                      height="20px"
+                    />
+                    <Skeleton
+                      className="badge-green"
+                      width="80px"
+                      height="20px"
+                    />
+                  </div>
+                  <Skeleton
+                    className="pro-list-name-box"
+                    width="120px"
+                    height="20px"
+                  />
+                  <Skeleton
+                    className="pro-list-price-box"
+                    width="140px"
+                    height="20px"
+                  />
                 </li>
               ))}
             </ul>
@@ -49,11 +71,33 @@ const Main = () => {
           <h2>🐥 새로 나왔어요 🐥</h2>
           <div className="new-wrap">
             <ul className="pro-list">
-              {Array.from({ length: 8 }, x => (
-                <li className="pro-list-wrap">
+              {Array.from({ length: 8 }, (v, i) => (
+                <li key={i} className="pro-list-wrap">
                   <div className="pro-list-img-box">
                     <Skeleton width="270px" height="270px" />
                   </div>
+                  <div className="badge">
+                    <Skeleton
+                      className="badge-best"
+                      width="80px"
+                      height="20px"
+                    />
+                    <Skeleton
+                      className="badge-green"
+                      width="80px"
+                      height="20px"
+                    />
+                  </div>
+                  <Skeleton
+                    className="pro-list-name-box"
+                    width="120px"
+                    height="20px"
+                  />
+                  <Skeleton
+                    className="pro-list-price-box"
+                    width="140px"
+                    height="20px"
+                  />
                 </li>
               ))}
             </ul>
@@ -66,11 +110,33 @@ const Main = () => {
           <h2>🌱 친환경 제품이에요 🌱</h2>
           <div className="green-wrap">
             <ul className="pro-list">
-              {Array.from({ length: 8 }, x => (
-                <li className="pro-list-wrap">
+              {Array.from({ length: 8 }, (v, i) => (
+                <li key={i} className="pro-list-wrap">
                   <div className="pro-list-img-box">
                     <Skeleton width="270px" height="270px" />
                   </div>
+                  <div className="badge">
+                    <Skeleton
+                      className="badge-best"
+                      width="80px"
+                      height="20px"
+                    />
+                    <Skeleton
+                      className="badge-green"
+                      width="80px"
+                      height="20px"
+                    />
+                  </div>
+                  <Skeleton
+                    className="pro-list-name-box"
+                    width="120px"
+                    height="20px"
+                  />
+                  <Skeleton
+                    className="pro-list-price-box"
+                    width="140px"
+                    height="20px"
+                  />
                 </li>
               ))}
             </ul>

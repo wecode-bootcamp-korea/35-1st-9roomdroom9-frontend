@@ -1,15 +1,11 @@
 .pro-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 50px 0 0 50px;
 
   .pro-list-wrap {
-    width: 270px;
-    margin: 60px 0 0 40px;
+    margin-top: 60px;
     text-align: center;
-
-    &:nth-child(4n + 1) {
-      margin-left: 0;
-    }
 
     &:hover {
       cursor: pointer;
@@ -20,8 +16,10 @@
       width: 100%;
 
       img {
-        width: 270px;
-        height: 270px;
+        border-radius: 30px;
+        border: 2px solid rgba(1, 1, 1, 0.1);
+        width: 260px;
+        height: 260px;
       }
     }
 

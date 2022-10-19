@@ -94,8 +94,8 @@ const ItemDetail = () => {
         <div className="item-detail-view_header">
           <div className="item-detail-info">
             <div className="badge">
-              <span className="badge-best">{is_best ? 'BEST' : ''}</span>
-              <span className="badge-green">{is_green ? 'BEST' : ''}</span>
+              {is_best && <span className="badge-best">BEST</span>}
+              {is_green && <span className="badge-green">GREEN</span>}
             </div>
             <h3 className="name">{name}</h3>
             <p className="price">

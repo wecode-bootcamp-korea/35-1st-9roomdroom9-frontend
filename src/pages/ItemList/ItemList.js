@@ -58,16 +58,8 @@ const ItemList = () => {
     }
   };
 
-  const sortLow = () => {
-    fetch(`${BASE_URL}/products/${params.id}?sorting=LOW_PRICE`)
-      .then(res => res.json())
-      .then(data => {
-        setList(data);
-      });
-  };
-
-  const sortNew = () => {
-    fetch(`${BASE_URL}/products/${params.id}?sorting=NEW`)
+  const sort = sortPrice => {
+    fetch(`${BASE_URL}/products/${params.id}?sorting=${sortPrice}`)
       .then(res => res.json())
       .then(data => {
         setList(data);
@@ -100,19 +92,21 @@ const ItemList = () => {
         </div>
       </div>
       <div className="item-list-img-list">
-        {Array.from({ length: 8 }, v => (
-          <div className="item-list-img">
+        {Array.from({ length: 10 }, (v, i) => (
+          <div key={i} className="item-list-img">
             <div className="links-wrap">
               <div className="links">
                 <Skeleton width="282px" height="282px" />
               </div>
             </div>
             <div className="badge">
-              <Skeleton className="badge-best">BEST&nbsp;</Skeleton>
+              <Skeleton className="badge-best" width="80px" height="20px">
+                BEST&nbsp;
+              </Skeleton>
             </div>
             <div className="item-list-img-text">
-              <p className="img-title" />
-              <p className="img-price" />
+              <Skeleton className="img-title" width="100px" height="20px" />
+              <Skeleton className="img-price" width="120px" height="20px" />
             </div>
           </div>
         ))}
@@ -130,20 +124,28 @@ const ItemList = () => {
       <div className="item-list-message-wrap">
         <div className="item-list-recommend-text">
           <button
-            className="button-recommend"
+            className="button-least"
             onClick={() => {
-              sortLow();
+              sort('NEW');
             }}
           >
-            낮은 가격순
+            최신순 |
           </button>
           <button
             className="button-least"
             onClick={() => {
-              sortNew();
+              sort('HIGH_PRICE');
             }}
           >
-            최신순
+            높은 가격순 |
+          </button>
+          <button
+            className="button-recommend"
+            onClick={() => {
+              sort('LOW_PRICE');
+            }}
+          >
+            낮은 가격순
           </button>
         </div>
       </div>
@@ -162,15 +164,9 @@ const ItemList = () => {
                 </div>
               </div>
               <div className="badge">
-                {listData.is_best === true ? (
-                  <span className="badge-best">BEST&nbsp;</span>
-                ) : (
-                  <span className="badge-green" />
-                )}
-                {listData.is_green === true ? (
+                {listData.is_best && <span className="badge-best">BEST</span>}
+                {listData.is_green && (
                   <span className="badge-green">GREEN</span>
-                ) : (
-                  <span className="badge-best" />
                 )}
               </div>
               <div className="item-list-img-text">

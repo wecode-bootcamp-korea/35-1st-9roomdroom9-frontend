@@ -11,7 +11,7 @@
   }
 
   .change-header {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     border-bottom: 1px solid #dddddd;
   }
 
@@ -21,18 +21,22 @@
     height: 90px;
     padding: 0 40px;
     align-items: center;
+    transition: all 0.2s;
+
+    &.active {
+      height: 80px;
+    }
 
     h1 {
       font-size: 35px;
       font-weight: bold;
       cursor: pointer;
+      margin-right: 30px;
     }
 
     .category {
-      position: absolute;
       display: flex;
-      top: 0px;
-      left: 250px;
+      // margin-left: auto;
       width: 700px;
       height: 90px;
       align-items: center;
