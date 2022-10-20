@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProductsList from './components/ProductsList';
 import Slides from '../Slides/Slides';
 import Skeleton from 'react-loading-skeleton';
-// import { BASE_URL } from '../../config';
+import { BASE_URL } from '../../config';
 import './Main.scss';
 
 const Main = () => {
@@ -15,7 +15,7 @@ const Main = () => {
   // }, []);
 
   useEffect(() => {
-    fetch(`api/products/main`)
+    fetch(`${BASE_URL}/products/main`)
       .then(res => res.json())
       .then(result => setProducts(result));
   }, []);
