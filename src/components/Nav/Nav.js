@@ -56,7 +56,8 @@ const Nav = () => {
   };
 
   const CategoryHandle = (id, category) => {
-    navigate(`/products/${id}`);
+    navigate(`${id}`);
+    // navigate(`/products/${id}`);
     setCategory(category);
   };
 
