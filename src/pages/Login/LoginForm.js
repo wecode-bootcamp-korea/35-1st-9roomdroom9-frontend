@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from '../../config';
+// import { BASE_URL } from '../../config';
 import './LoginForm.scss';
 
 const LoginForm = () => {
@@ -8,7 +8,7 @@ const LoginForm = () => {
 
   const postUserData = e => {
     e.preventDefault();
-    fetch(`${BASE_URL}/users/login`, {
+    fetch(`api/users/login`, {
       method: 'POST',
       body: JSON.stringify({
         email: userId,

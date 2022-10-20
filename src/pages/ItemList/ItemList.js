@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
-import { BASE_URL } from '../../config';
+// import { BASE_URL } from '../../config';
 import './ItemList.scss';
 
 const ItemList = () => {
@@ -12,9 +12,7 @@ const ItemList = () => {
   const { category_data, products_data } = list;
 
   const getData = useCallback(() => {
-    fetch(
-      `${BASE_URL}/products/${params.id}?offset=${(pageNum - 1) * 10}&limit=10`
-    )
+    fetch(`api/products/${params.id}?offset=${(pageNum - 1) * 10}&limit=10`)
       .then(res => res.json())
       .then(data => {
         setList(current => {
@@ -33,7 +31,7 @@ const ItemList = () => {
   }, [pageNum, getData]);
 
   useEffect(() => {
-    fetch(`${BASE_URL}/products/${params.id}?offset=0&limit=10`)
+    fetch(`api/products/${params.id}?offset=0&limit=10`)
       .then(res => res.json())
       .then(data => {
         setList(data);
@@ -59,7 +57,7 @@ const ItemList = () => {
   };
 
   const sort = sortPrice => {
-    fetch(`${BASE_URL}/products/${params.id}?sorting=${sortPrice}`)
+    fetch(`api/products/${params.id}?sorting=${sortPrice}`)
       .then(res => res.json())
       .then(data => {
         setList(data);
@@ -87,8 +85,9 @@ const ItemList = () => {
       </div>
       <div className="item-list-message-wrap">
         <div className="item-list-recommend-text">
+          <button className="button-least">최신순 |</button>
+          <button className="button-recommend">높은 가격순 |</button>
           <button className="button-recommend">낮은 가격순</button>
-          <button className="button-least">최신순</button>
         </div>
       </div>
       <div className="item-list-img-list">

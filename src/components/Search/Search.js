@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BASE_URL } from '../../config';
+// import { BASE_URL } from '../../config';
 import SearchItems from './SearchItems';
 import '../Search/Search.scss';
 
@@ -8,7 +8,7 @@ function Search({ isSearchOn, handleSearchBarOn }) {
   const [userSearch, setUserSearch] = useState([]);
 
   useEffect(() => {
-    fetch(`${BASE_URL}/products/1000?search=${userInput}`)
+    fetch(`api/products/1000?search=${userInput}`)
       .then(response => response.json())
       .then(result => {
         setUserSearch(result.products_data);

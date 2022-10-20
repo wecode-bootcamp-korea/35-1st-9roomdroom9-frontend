@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import CartItem from './CartItem';
-import { BASE_URL } from '../../config';
+// import { BASE_URL } from '../../config';
 import './Cart.scss';
 
 const Cart = () => {
@@ -11,7 +11,7 @@ const Cart = () => {
   const priceTotal = sumPrice + deliveryFee;
 
   useEffect(() => {
-    fetch(`${BASE_URL}/carts`, {
+    fetch(`api/carts`, {
       headers: {
         Authorization: localStorage.getItem('token'),
       },
@@ -95,7 +95,7 @@ const Cart = () => {
       .map(e => e.join('='))
       .join('&');
 
-    fetch(`${BASE_URL}/carts?${deleteUrl}`, {
+    fetch(`api/carts?${deleteUrl}`, {
       method: 'DELETE',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -120,7 +120,7 @@ const Cart = () => {
     const cartDelete = copyList.filter(a => a === item);
     const deleteItem = cartDelete[0].cart_id;
 
-    fetch(`${BASE_URL}/carts?cart_id=${deleteItem}`, {
+    fetch(`api/carts?cart_id=${deleteItem}`, {
       method: 'DELETE',
       headers: {
         Authorization: localStorage.getItem('token'),
