@@ -15,7 +15,7 @@ const Main = () => {
   // }, []);
 
   useEffect(() => {
-    fetch(`${BASE_URL}/products/main`)
+    fetch(`${BASE_URL}/products/main`, { referrerPolicy: 'unsafe_url' })
       .then(res => res.json())
       .then(result => setProducts(result));
   }, []);
