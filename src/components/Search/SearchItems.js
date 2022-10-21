@@ -7,8 +7,6 @@ const SearchItems = ({ list, handleSearchBarOn }) => {
   const goDetail = () => {
     navigate(`/products/detail/${list.id}`);
     handleSearchBarOn();
-    // eslint-disable-next-line no-restricted-globals
-    location.reload();
   };
 
   return (
