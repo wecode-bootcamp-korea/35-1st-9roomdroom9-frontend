@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 // import { BASE_URL } from '../../config';
 import './LoginForm.scss';
 
 const LoginForm = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 
@@ -23,7 +23,8 @@ const LoginForm = () => {
           localStorage.setItem('token', result.access_token);
           localStorage.setItem('name', result.name);
           alert(`로그인을 환영합니다 ${userId}님`);
-          navigate('/');
+          // navigate('/');
+          window.location.replace('/');
         } else if (result.message === 'INVALID_USER') {
           alert(
             '아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.'

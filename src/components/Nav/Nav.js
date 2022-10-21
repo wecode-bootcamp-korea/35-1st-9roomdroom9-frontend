@@ -52,7 +52,8 @@ const Nav = () => {
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
-    navigate('/');
+    // navigate('/');
+    window.location.replace('/');
   };
 
   const CategoryHandle = (id, category) => {
