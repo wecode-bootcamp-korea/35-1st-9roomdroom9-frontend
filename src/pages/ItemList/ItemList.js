@@ -30,14 +30,24 @@ const ItemList = () => {
     pageNum !== 1 && getData();
   }, [pageNum, getData]);
 
+  // useEffect(() => {
+  //   fetch(`api/products/${params.id}?offset=0&limit=10`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setList(data);
+  //     });
+  //   setPageNum(1);
+  // }, [params.id]);
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+
   useEffect(() => {
-    fetch(`api/products/${params.id}?offset=0&limit=10`)
+    fetch(`${PROXY}/products/${params.id}?offset=0&limit=10`)
       .then(res => res.json())
       .then(data => {
         setList(data);
       });
     setPageNum(1);
-  }, [params.id]);
+  }, [PROXY, params.id]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
