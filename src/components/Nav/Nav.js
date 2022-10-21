@@ -25,7 +25,7 @@ const Nav = () => {
   const [token, setToken] = useState('');
   const [user, setUser] = useState('');
 
-  const [category, setCategory] = useState('전체');
+  const [category, setCategory] = useState('');
   const [isSearchOn, setisSearchOn] = useState(false);
 
   function handleSearchBarOn() {
@@ -80,7 +80,9 @@ const Nav = () => {
         <div className={`${scrollPosition < 1 ? 'nav-bar' : 'nav-bar active'}`}>
           <h1
             onClick={() => {
-              navigate('/');
+              window.location.replace('/');
+              // navigate('/');
+              // location.reload();
             }}
           >
             구방문방구
