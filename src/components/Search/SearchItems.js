@@ -1,11 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const SearchItems = ({ list, handleSearchBarOn }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const goDetail = e => {
-    navigate(`/products/detail/${list.id}`);
+  const goDetail = () => {
+    window.location.replace(`/products/detail/${list.id}`);
+    // navigate(`/products/detail/${list.id}`);
     handleSearchBarOn();
   };
 

@@ -18,6 +18,7 @@ function Search({ isSearchOn, handleSearchBarOn }) {
   }, [PROXY, userInput]);
 
   const handleChange = e => {
+    e.preventDefault();
     setUserInput(e.target.value);
   };
 
