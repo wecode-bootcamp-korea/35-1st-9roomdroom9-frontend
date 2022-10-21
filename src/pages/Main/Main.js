@@ -13,12 +13,13 @@ const Main = () => {
   //     .then(res => res.json())
   //     .then(result => setProducts(result));
   // }, []);
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 
   useEffect(() => {
-    fetch(`api/products/main`)
+    fetch(`${PROXY}/products/main`)
       .then(res => res.json())
       .then(result => setProducts(result));
-  }, []);
+  }, [PROXY]);
 
   const { best_products, new_products, green_products } = products;
 

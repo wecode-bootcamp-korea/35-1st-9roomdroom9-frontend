@@ -7,13 +7,15 @@ function Search({ isSearchOn, handleSearchBarOn }) {
   const [userInput, setUserInput] = useState('');
   const [userSearch, setUserSearch] = useState([]);
 
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+
   useEffect(() => {
-    fetch(`api/products/1000?search=${userInput}`)
+    fetch(`${PROXY}/products/1000?search=${userInput}`)
       .then(response => response.json())
       .then(result => {
         setUserSearch(result.products_data);
       });
-  }, [userInput]);
+  }, [PROXY, userInput]);
 
   const handleChange = e => {
     setUserInput(e.target.value);

@@ -15,13 +15,15 @@ const ItemDetail = () => {
   const params = useParams();
   const navigate = useNavigate();
 
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+
   useEffect(() => {
-    fetch(`api/products/detail/${params.id}`)
+    fetch(`${PROXY}/products/detail/${params.id}`)
       .then(res => res.json())
       .then(data => {
         setItemInfo(data.result);
       });
-  }, [params.id]);
+  }, [PROXY, params.id]);
 
   const isData = itemData.length !== 0;
 
@@ -37,7 +39,7 @@ const ItemDetail = () => {
       return;
     }
 
-    fetch(`api/carts`, {
+    fetch(`${PROXY}/carts`, {
       method: 'POST',
       headers: { Authorization: token },
       body: JSON.stringify({

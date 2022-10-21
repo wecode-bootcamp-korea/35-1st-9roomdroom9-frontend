@@ -6,9 +6,11 @@ import './JoinForm.scss';
 const JoinForm = () => {
   const navigate = useNavigate();
 
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+
   const postUserData = e => {
     e.preventDefault();
-    fetch(`api/users/signup`, {
+    fetch(`${PROXY}/users/signup`, {
       method: 'POST',
       body: JSON.stringify({
         name: userName,

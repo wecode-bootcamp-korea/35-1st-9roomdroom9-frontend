@@ -11,8 +11,12 @@ const ItemList = () => {
   const navigate = useNavigate();
   const { category_data, products_data } = list;
 
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+
   const getData = useCallback(() => {
-    fetch(`api/products/${params.id}?offset=${(pageNum - 1) * 10}&limit=10`)
+    fetch(
+      `${PROXY}/products/${params.id}?offset=${(pageNum - 1) * 10}&limit=10`
+    )
       .then(res => res.json())
       .then(data => {
         setList(current => {
@@ -24,21 +28,11 @@ const ItemList = () => {
           return newCondition;
         });
       });
-  }, [pageNum, params.id]);
+  }, [PROXY, pageNum, params.id]);
 
   useEffect(() => {
     pageNum !== 1 && getData();
   }, [pageNum, getData]);
-
-  // useEffect(() => {
-  //   fetch(`api/products/${params.id}?offset=0&limit=10`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setList(data);
-  //     });
-  //   setPageNum(1);
-  // }, [params.id]);
-  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 
   useEffect(() => {
     fetch(`${PROXY}/products/${params.id}?offset=0&limit=10`)
@@ -67,7 +61,7 @@ const ItemList = () => {
   };
 
   const sort = sortPrice => {
-    fetch(`api/products/${params.id}?sorting=${sortPrice}`)
+    fetch(`${PROXY}/products/${params.id}?sorting=${sortPrice}`)
       .then(res => res.json())
       .then(data => {
         setList(data);

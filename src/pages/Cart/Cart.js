@@ -10,8 +10,10 @@ const Cart = () => {
   const [deliveryFee, setDeliveryFee] = useState(0);
   const priceTotal = sumPrice + deliveryFee;
 
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+
   useEffect(() => {
-    fetch(`api/carts`, {
+    fetch(`${PROXY}/carts`, {
       headers: {
         Authorization: localStorage.getItem('token'),
       },
@@ -21,7 +23,7 @@ const Cart = () => {
         setCartList(data.result);
         setCheckedLists(data.result);
       });
-  }, []);
+  }, [PROXY]);
 
   useEffect(() => {
     setSumPrice(
@@ -95,7 +97,7 @@ const Cart = () => {
       .map(e => e.join('='))
       .join('&');
 
-    fetch(`api/carts?${deleteUrl}`, {
+    fetch(`${PROXY}/carts?${deleteUrl}`, {
       method: 'DELETE',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -120,7 +122,7 @@ const Cart = () => {
     const cartDelete = copyList.filter(a => a === item);
     const deleteItem = cartDelete[0].cart_id;
 
-    fetch(`api/carts?cart_id=${deleteItem}`, {
+    fetch(`${PROXY}/carts?cart_id=${deleteItem}`, {
       method: 'DELETE',
       headers: {
         Authorization: localStorage.getItem('token'),

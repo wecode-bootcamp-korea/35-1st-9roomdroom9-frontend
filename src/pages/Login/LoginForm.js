@@ -6,9 +6,11 @@ import './LoginForm.scss';
 const LoginForm = () => {
   const navigate = useNavigate();
 
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+
   const postUserData = e => {
     e.preventDefault();
-    fetch(`api/users/login`, {
+    fetch(`${PROXY}/users/login`, {
       method: 'POST',
       body: JSON.stringify({
         email: userId,
@@ -48,18 +50,20 @@ const LoginForm = () => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
+  const REGEX_EMAIL = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
   const REGEX_PASSWORD =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[?!@#$%*&])[A-Za-z\d?!@#$%*&]{8,}$/;
-  const REGEX_EMAIL = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
 
   const isValid = REGEX_EMAIL.test(userId) && REGEX_PASSWORD.test(userPw);
+
+  const REGEX_ARRAY = [REGEX_EMAIL.test(userId), REGEX_PASSWORD.test(userPw)];
 
   return (
     <form className="login-form" onSubmit={postUserData} onChange={handleInput}>
       <h2 className="login-title">로그인</h2>
       <div className="login-contnet">
         <ul className="login-form-list">
-          {INPUT_DATA.map(input => {
+          {INPUT_DATA.map((input, i) => {
             return (
               <li key={input.id}>
                 <div className="input-box-error">
@@ -70,7 +74,12 @@ const LoginForm = () => {
                     autoFocus={input.autoFocus}
                     autocomplete="off"
                   />
-                  <p className="text-valid">{input.valid}</p>
+                  {REGEX_ARRAY[i] ? (
+                    ''
+                  ) : (
+                    <p className="text-valid">{input.valid}</p>
+                  )}
+                  {/* <p className="text-valid">{input.valid}</p> */}
                 </div>
               </li>
             );
