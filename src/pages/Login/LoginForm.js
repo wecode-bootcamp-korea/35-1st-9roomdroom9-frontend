@@ -22,6 +22,7 @@ const LoginForm = () => {
           localStorage.setItem('name', result.name);
           alert(`로그인을 환영합니다 ${userId}님`);
           navigate('/');
+          window.location.reload();
         } else if (result.message === 'INVALID_USER') {
           alert(
             '아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.'

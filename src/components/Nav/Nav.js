@@ -53,6 +53,7 @@ const Nav = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
     navigate('/');
+    window.location.reload();
   };
 
   const CategoryHandle = (id, category) => {
