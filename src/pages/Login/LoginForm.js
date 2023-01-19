@@ -73,7 +73,7 @@ const LoginForm = () => {
                     type={input.type}
                     placeholder={input.placeholder}
                     autoFocus={input.autoFocus}
-                    autocomplete="off"
+                    autoComplete="off"
                   />
                   {REGEX_ARRAY[i] ? (
                     ''

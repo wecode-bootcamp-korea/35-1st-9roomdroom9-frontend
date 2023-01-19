@@ -99,7 +99,7 @@ const ItemList = () => {
           <div key={i} className="item-list-img">
             <div className="links-wrap">
               <div className="links">
-                <Skeleton width="282px" height="282px" />
+                <Skeleton width="252px" height="252px" />
               </div>
             </div>
             <div className="badge">
